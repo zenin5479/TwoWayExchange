@@ -34,7 +34,7 @@
          // 
          // textBoxLog
          // 
-         textBoxLog.Location = new System.Drawing.Point(12, 53);
+         textBoxLog.Location = new System.Drawing.Point(12, 27);
          textBoxLog.Multiline = true;
          textBoxLog.Name = "textBoxLog";
          textBoxLog.ReadOnly = true;
