@@ -1,1 +1,1 @@
-# TwoWayExchange
+# Двусторонний обмен между Windows Forms и консолью
