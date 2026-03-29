@@ -1,6 +1,6 @@
-﻿using System.IO.Pipes;
+﻿using System;
 using System.IO;
-using System;
+using System.IO.Pipes;
 using System.Windows.Forms;
 
 namespace SyncServer
@@ -14,7 +14,7 @@ namespace SyncServer
          Load += MainForm_Load;
       }
 
-      private void MainForm_Load(object sender, System.EventArgs e)
+      private void MainForm_Load(object sender, EventArgs e)
       {
          // Серверный канал с фиксированным именем
          using (var server = new NamedPipeServerStream("myPipe", PipeDirection.InOut))
