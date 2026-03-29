@@ -58,7 +58,8 @@
          Controls.Add(textBoxLog);
          Controls.Add(Label);
          Name = "MainForm";
-         Text = "Form1";
+         StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+         Text = "Двусторонний обмен между Windows Forms и консолью";
          Load += MainForm_Load;
          ResumeLayout(false);
          PerformLayout();
