@@ -10,6 +10,8 @@ namespace SyncServer
       public MainForm()
       {
          InitializeComponent();
+
+         Load += MainForm_Load;
       }
 
       private void MainForm_Load(object sender, System.EventArgs e)
