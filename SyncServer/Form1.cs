@@ -9,5 +9,9 @@ namespace SyncServer
          InitializeComponent();
       }
 
+      private void MainForm_Load(object sender, System.EventArgs e)
+      {
+
+      }
    }
 }
