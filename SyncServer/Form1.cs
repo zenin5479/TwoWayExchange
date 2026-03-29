@@ -55,6 +55,9 @@ namespace SyncServer
          Close();
       }
 
-
+      private void Log(string message)
+      {
+         textBoxLog.AppendText($"{DateTime.Now:HH:mm:ss} - {message}{Environment.NewLine}");
+      }
    }
 }
