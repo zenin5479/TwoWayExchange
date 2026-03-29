@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO.Pipes;
+using System.IO;
 
 namespace SyncClient
 {
@@ -6,7 +8,33 @@ namespace SyncClient
    {
       static void Main(string[] args)
       {
-         Console.WriteLine("Hello World!");
+         using (var client = new NamedPipeClientStream(".", "myPipe", PipeDirection.InOut))
+         {
+            Console.WriteLine("Подключение к серверу...");
+            client.Connect(); // синхронное подключение
+            Console.WriteLine("Подключено!");
+
+            using (var writer = new StreamWriter(client) { AutoFlush = true })
+            using (var reader = new StreamReader(client))
+            {
+               while (true)
+               {
+                  Console.Write("Введите команду (или 'exit'): ");
+                  string input = Console.ReadLine();
+                  if (string.IsNullOrEmpty(input)) continue;
+
+                  writer.WriteLine(input);
+
+                  if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                  {
+                     break;
+                  }
+
+                  string response = reader.ReadLine();
+                  Console.WriteLine($"Ответ сервера: {response}");
+               }
+            }
+         }
       }
    }
 }
