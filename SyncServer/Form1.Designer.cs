@@ -1,6 +1,6 @@
 ﻿namespace SyncServer
 {
-   partial class Form1
+   partial class MainForm
    {
       /// <summary>
       ///  Required designer variable.
@@ -50,14 +50,14 @@
          Label.TabIndex = 2;
          Label.Text = "Сервер запущен, ожидание подключения...";
          // 
-         // Form1
+         // MainForm
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          ClientSize = new System.Drawing.Size(800, 450);
          Controls.Add(textBoxLog);
          Controls.Add(Label);
-         Name = "Form1";
+         Name = "MainForm";
          Text = "Form1";
          ResumeLayout(false);
          PerformLayout();
