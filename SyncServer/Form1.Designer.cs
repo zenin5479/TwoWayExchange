@@ -28,12 +28,44 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(800, 450);
-         this.Text = "Form1";
+         textBoxLog = new System.Windows.Forms.TextBox();
+         Label = new System.Windows.Forms.Label();
+         SuspendLayout();
+         // 
+         // textBoxLog
+         // 
+         textBoxLog.Location = new System.Drawing.Point(12, 53);
+         textBoxLog.Multiline = true;
+         textBoxLog.Name = "textBoxLog";
+         textBoxLog.ReadOnly = true;
+         textBoxLog.Size = new System.Drawing.Size(100, 23);
+         textBoxLog.TabIndex = 3;
+         // 
+         // Label
+         // 
+         Label.AutoSize = true;
+         Label.Location = new System.Drawing.Point(12, 9);
+         Label.Name = "Label";
+         Label.Size = new System.Drawing.Size(247, 15);
+         Label.TabIndex = 2;
+         Label.Text = "Сервер запущен, ожидание подключения...";
+         // 
+         // Form1
+         // 
+         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         ClientSize = new System.Drawing.Size(800, 450);
+         Controls.Add(textBoxLog);
+         Controls.Add(Label);
+         Name = "Form1";
+         Text = "Form1";
+         ResumeLayout(false);
+         PerformLayout();
       }
 
       #endregion
+
+      private System.Windows.Forms.TextBox textBoxLog;
+      private System.Windows.Forms.Label Label;
    }
 }
