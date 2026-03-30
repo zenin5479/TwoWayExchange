@@ -25,7 +25,7 @@ namespace SyncServer
             Log("Клиент подключился");
 
             using (StreamReader reader = new StreamReader(server))
-            using (var writer = new StreamWriter(server) { AutoFlush = true })
+            using (StreamWriter writer = new StreamWriter(server) { AutoFlush = true })
             {
                while (true)
                {
