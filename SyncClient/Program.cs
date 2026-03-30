@@ -11,7 +11,8 @@ namespace SyncClient
          using (var client = new NamedPipeClientStream(".", "myPipe", PipeDirection.InOut))
          {
             Console.WriteLine("Подключение к серверу...");
-            client.Connect(); // синхронное подключение
+            // Синхронное подключение
+            client.Connect(); 
             Console.WriteLine("Подключено!");
 
             using (var writer = new StreamWriter(client) { AutoFlush = true })
