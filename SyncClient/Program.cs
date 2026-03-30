@@ -6,7 +6,7 @@ namespace SyncClient
 {
    internal class Program
    {
-      static void Main(string[] args)
+      static void Main()
       {
          using (NamedPipeClientStream client = new NamedPipeClientStream(".", "myPipe", PipeDirection.InOut))
          {
