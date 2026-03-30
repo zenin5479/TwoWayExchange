@@ -15,24 +15,27 @@ namespace SyncClient
             client.Connect(); 
             Console.WriteLine("Подключено!");
 
-            using (StreamWriter writer = new StreamWriter(client) { AutoFlush = true })
-            using (StreamReader reader = new StreamReader(client))
+            using (StreamWriter writer = new StreamWriter(client))
             {
-               while (true)
+               writer.AutoFlush = true;
+               using (StreamReader reader = new StreamReader(client))
                {
-                  Console.Write("Введите команду (или 'exit'): ");
-                  string input = Console.ReadLine();
-                  if (string.IsNullOrEmpty(input)) continue;
-
-                  writer.WriteLine(input);
-
-                  if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                  while (true)
                   {
-                     break;
-                  }
+                     Console.Write("Введите команду (или 'exit'): ");
+                     string input = Console.ReadLine();
+                     if (string.IsNullOrEmpty(input)) continue;
 
-                  string response = reader.ReadLine();
-                  Console.WriteLine("Ответ сервера: {0}", response);
+                     writer.WriteLine(input);
+
+                     if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                     {
+                        break;
+                     }
+
+                     string response = reader.ReadLine();
+                     Console.WriteLine("Ответ сервера: {0}", response);
+                  }
                }
             }
          }
