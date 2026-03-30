@@ -15,8 +15,8 @@ namespace SyncClient
             client.Connect(); 
             Console.WriteLine("Подключено!");
 
-            using (var writer = new StreamWriter(client) { AutoFlush = true })
-            using (var reader = new StreamReader(client))
+            using (StreamWriter writer = new StreamWriter(client) { AutoFlush = true })
+            using (StreamReader reader = new StreamReader(client))
             {
                while (true)
                {
