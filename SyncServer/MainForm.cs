@@ -24,7 +24,7 @@ namespace SyncServer
             server.WaitForConnection();
             Log("Клиент подключился");
 
-            using (var reader = new StreamReader(server))
+            using (StreamReader reader = new StreamReader(server))
             using (var writer = new StreamWriter(server) { AutoFlush = true })
             {
                while (true)
