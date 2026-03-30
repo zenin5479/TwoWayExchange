@@ -32,7 +32,10 @@ namespace SyncServer
                {
                   Log("Ожидание команды...");
                   string command = reader.ReadLine();
-                  if (command == null) break;
+                  if (command == null)
+                  {
+                     break;
+                  }
 
                   Log($"Получено: {command}");
 
