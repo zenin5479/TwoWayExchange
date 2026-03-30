@@ -8,7 +8,7 @@ namespace SyncClient
    {
       static void Main(string[] args)
       {
-         using (var client = new NamedPipeClientStream(".", "myPipe", PipeDirection.InOut))
+         using (NamedPipeClientStream client = new NamedPipeClientStream(".", "myPipe", PipeDirection.InOut))
          {
             Console.WriteLine("Подключение к серверу...");
             // Синхронное подключение
