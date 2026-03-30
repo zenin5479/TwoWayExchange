@@ -17,7 +17,7 @@ namespace SyncServer
       private void MainForm_Load(object sender, EventArgs e)
       {
          // Серверный канал с фиксированным именем
-         using (var server = new NamedPipeServerStream("myPipe", PipeDirection.InOut))
+         using (NamedPipeServerStream server = new NamedPipeServerStream("myPipe", PipeDirection.InOut))
          {
             Log("Сервер ожидает подключения...");
             // Синхронное ожидание подключения клиента — блокирует UI
