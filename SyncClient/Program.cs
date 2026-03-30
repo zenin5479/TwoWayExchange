@@ -32,7 +32,7 @@ namespace SyncClient
                   }
 
                   string response = reader.ReadLine();
-                  Console.WriteLine($"Ответ сервера: {response}");
+                  Console.WriteLine(string.Format("Ответ сервера: {0}", response));
                }
             }
          }
