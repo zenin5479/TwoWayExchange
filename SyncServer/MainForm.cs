@@ -25,8 +25,9 @@ namespace SyncServer
             Log("Клиент подключился");
 
             using (StreamReader reader = new StreamReader(server))
-            using (StreamWriter writer = new StreamWriter(server) { AutoFlush = true })
+            using (StreamWriter writer = new StreamWriter(server))
             {
+               writer.AutoFlush = true;
                while (true)
                {
                   Log("Ожидание команды...");
