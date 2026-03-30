@@ -48,7 +48,7 @@ namespace SyncServer
                   // Формируем ответ
                   string response = command.ToUpperInvariant();
                   writer.WriteLine(response);
-                  Log($"Отправлено: {response}");
+                  Log(string.Format("Отправлено: {0}", response));
                }
             }
 
