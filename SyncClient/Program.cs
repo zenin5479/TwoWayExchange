@@ -12,7 +12,7 @@ namespace SyncClient
          {
             Console.WriteLine("Подключение к серверу...");
             // Синхронное подключение
-            client.Connect(); 
+            client.Connect();
             Console.WriteLine("Подключено!");
 
             using (StreamWriter writer = new StreamWriter(client))
@@ -24,7 +24,10 @@ namespace SyncClient
                   {
                      Console.Write("Введите команду (или 'exit'): ");
                      string input = Console.ReadLine();
-                     if (string.IsNullOrEmpty(input)) continue;
+                     if (string.IsNullOrEmpty(input))
+                     {
+                        continue;
+                     }
 
                      writer.WriteLine(input);
 
