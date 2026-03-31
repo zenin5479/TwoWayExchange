@@ -64,7 +64,7 @@
          // buttonStop
          // 
          buttonStop.Enabled = false;
-         buttonStop.Location = new System.Drawing.Point(375, 12);
+         buttonStop.Location = new System.Drawing.Point(309, 12);
          buttonStop.Name = "buttonStop";
          buttonStop.Size = new System.Drawing.Size(85, 23);
          buttonStop.TabIndex = 5;
@@ -75,7 +75,7 @@
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         ClientSize = new System.Drawing.Size(472, 132);
+         ClientSize = new System.Drawing.Size(447, 132);
          Controls.Add(buttonStop);
          Controls.Add(buttonStart);
          Controls.Add(textBoxLog);
