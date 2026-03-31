@@ -37,7 +37,7 @@ namespace SyncServer
             string command = _reader.ReadLine();
             if (command == null) break;
 
-            Log($"Получено: {command}");
+            Log(string.Format("Получено: {0}", command));
             if (command.Equals("exit", StringComparison.OrdinalIgnoreCase))
             {
                Log("Завершение по команде exit");
