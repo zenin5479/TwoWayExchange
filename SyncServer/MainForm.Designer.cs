@@ -30,6 +30,8 @@
       {
          textBoxLog = new System.Windows.Forms.TextBox();
          Label = new System.Windows.Forms.Label();
+         buttonStart = new System.Windows.Forms.Button();
+         buttonStop = new System.Windows.Forms.Button();
          SuspendLayout();
          // 
          // textBoxLog
@@ -50,11 +52,31 @@
          Label.TabIndex = 2;
          Label.Text = "Сервер запущен, ожидание подключения...";
          // 
+         // buttonStart
+         // 
+         buttonStart.Location = new System.Drawing.Point(50, 71);
+         buttonStart.Name = "buttonStart";
+         buttonStart.Size = new System.Drawing.Size(142, 23);
+         buttonStart.TabIndex = 4;
+         buttonStart.Text = "Запустить сервер";
+         buttonStart.UseVisualStyleBackColor = true;
+         // 
+         // buttonStop
+         // 
+         buttonStop.Location = new System.Drawing.Point(316, 81);
+         buttonStop.Name = "buttonStop";
+         buttonStop.Size = new System.Drawing.Size(75, 23);
+         buttonStop.TabIndex = 5;
+         buttonStop.Text = "Остановить";
+         buttonStop.UseVisualStyleBackColor = true;
+         // 
          // MainForm
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          ClientSize = new System.Drawing.Size(472, 132);
+         Controls.Add(buttonStop);
+         Controls.Add(buttonStart);
          Controls.Add(textBoxLog);
          Controls.Add(Label);
          Name = "MainForm";
@@ -69,5 +91,7 @@
 
       private System.Windows.Forms.TextBox textBoxLog;
       private System.Windows.Forms.Label Label;
+      private System.Windows.Forms.Button buttonStart;
+      private System.Windows.Forms.Button buttonStop;
    }
 }
