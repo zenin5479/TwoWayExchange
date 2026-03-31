@@ -60,6 +60,7 @@
          buttonStart.TabIndex = 4;
          buttonStart.Text = "Запустить сервер";
          buttonStart.UseVisualStyleBackColor = true;
+         buttonStart.Click += buttonStart_Click;
          // 
          // buttonStop
          // 
@@ -70,6 +71,7 @@
          buttonStop.TabIndex = 5;
          buttonStop.Text = "Остановить";
          buttonStop.UseVisualStyleBackColor = true;
+         buttonStop.Click += buttonStop_Click;
          // 
          // MainForm
          // 
