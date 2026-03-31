@@ -24,7 +24,8 @@ namespace SyncServer
 
          // Всё выполняется синхронно в потоке UI – форма замрёт до завершения
          _server = new NamedPipeServerStream("myPipe", PipeDirection.InOut);
-         _server.WaitForConnection(); // блокирует UI, но форма уже видима
+         // Блокирует UI, но форма уже видима
+         _server.WaitForConnection(); 
          Log("Клиент подключился");
 
          _reader = new StreamReader(_server);
