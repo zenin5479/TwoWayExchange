@@ -40,7 +40,7 @@
          textBoxLog.Multiline = true;
          textBoxLog.Name = "textBoxLog";
          textBoxLog.ReadOnly = true;
-         textBoxLog.Size = new System.Drawing.Size(247, 23);
+         textBoxLog.Size = new System.Drawing.Size(422, 124);
          textBoxLog.TabIndex = 3;
          // 
          // Label
@@ -65,7 +65,7 @@
          // buttonStop
          // 
          buttonStop.Enabled = false;
-         buttonStop.Location = new System.Drawing.Point(350, 12);
+         buttonStop.Location = new System.Drawing.Point(349, 12);
          buttonStop.Name = "buttonStop";
          buttonStop.Size = new System.Drawing.Size(85, 23);
          buttonStop.TabIndex = 5;
@@ -77,7 +77,7 @@
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         ClientSize = new System.Drawing.Size(447, 100);
+         ClientSize = new System.Drawing.Size(446, 201);
          Controls.Add(buttonStop);
          Controls.Add(buttonStart);
          Controls.Add(textBoxLog);
