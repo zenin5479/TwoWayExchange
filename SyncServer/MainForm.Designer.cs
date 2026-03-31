@@ -85,7 +85,6 @@
          Name = "MainForm";
          StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          Text = "Двусторонний обмен между Windows Forms и консолью";
-         Load += MainForm_Load;
          ResumeLayout(false);
          PerformLayout();
       }
