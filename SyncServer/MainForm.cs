@@ -16,8 +16,6 @@ namespace SyncServer
          InitializeComponent();
       }
 
-
-
       private void buttonStart_Click(object sender, EventArgs e)
       {
          buttonStart.Enabled = false;
