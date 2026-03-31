@@ -36,7 +36,7 @@
          // 
          // textBoxLog
          // 
-         textBoxLog.Location = new System.Drawing.Point(12, 27);
+         textBoxLog.Location = new System.Drawing.Point(207, 63);
          textBoxLog.Multiline = true;
          textBoxLog.Name = "textBoxLog";
          textBoxLog.ReadOnly = true;
@@ -46,7 +46,7 @@
          // Label
          // 
          Label.AutoSize = true;
-         Label.Location = new System.Drawing.Point(12, 9);
+         Label.Location = new System.Drawing.Point(118, 96);
          Label.Name = "Label";
          Label.Size = new System.Drawing.Size(247, 15);
          Label.TabIndex = 2;
@@ -54,7 +54,7 @@
          // 
          // buttonStart
          // 
-         buttonStart.Location = new System.Drawing.Point(260, 40);
+         buttonStart.Location = new System.Drawing.Point(12, 12);
          buttonStart.Name = "buttonStart";
          buttonStart.Size = new System.Drawing.Size(120, 23);
          buttonStart.TabIndex = 4;
