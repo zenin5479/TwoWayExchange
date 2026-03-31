@@ -29,7 +29,8 @@ namespace SyncServer
          Log("Клиент подключился");
 
          _reader = new StreamReader(_server);
-         _writer = new StreamWriter(_server) { AutoFlush = true };
+         _writer = new StreamWriter(_server);
+         _writer.AutoFlush = true;
 
          while (true)
          {
