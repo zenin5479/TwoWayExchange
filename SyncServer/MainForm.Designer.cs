@@ -36,17 +36,17 @@
          // 
          // textBoxLog
          // 
-         textBoxLog.Location = new System.Drawing.Point(207, 63);
+         textBoxLog.Location = new System.Drawing.Point(12, 63);
          textBoxLog.Multiline = true;
          textBoxLog.Name = "textBoxLog";
          textBoxLog.ReadOnly = true;
-         textBoxLog.Size = new System.Drawing.Size(100, 23);
+         textBoxLog.Size = new System.Drawing.Size(247, 23);
          textBoxLog.TabIndex = 3;
          // 
          // Label
          // 
          Label.AutoSize = true;
-         Label.Location = new System.Drawing.Point(118, 96);
+         Label.Location = new System.Drawing.Point(12, 45);
          Label.Name = "Label";
          Label.Size = new System.Drawing.Size(247, 15);
          Label.TabIndex = 2;
@@ -64,7 +64,7 @@
          // buttonStop
          // 
          buttonStop.Enabled = false;
-         buttonStop.Location = new System.Drawing.Point(386, 63);
+         buttonStop.Location = new System.Drawing.Point(375, 28);
          buttonStop.Name = "buttonStop";
          buttonStop.Size = new System.Drawing.Size(85, 23);
          buttonStop.TabIndex = 5;
