@@ -65,7 +65,7 @@
          // 
          buttonStop.Location = new System.Drawing.Point(316, 81);
          buttonStop.Name = "buttonStop";
-         buttonStop.Size = new System.Drawing.Size(75, 23);
+         buttonStop.Size = new System.Drawing.Size(85, 23);
          buttonStop.TabIndex = 5;
          buttonStop.Text = "Остановить";
          buttonStop.UseVisualStyleBackColor = true;
