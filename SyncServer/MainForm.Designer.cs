@@ -54,7 +54,7 @@
          // 
          // buttonStart
          // 
-         buttonStart.Location = new System.Drawing.Point(50, 71);
+         buttonStart.Location = new System.Drawing.Point(260, 40);
          buttonStart.Name = "buttonStart";
          buttonStart.Size = new System.Drawing.Size(120, 23);
          buttonStart.TabIndex = 4;
@@ -64,7 +64,7 @@
          // buttonStop
          // 
          buttonStop.Enabled = false;
-         buttonStop.Location = new System.Drawing.Point(316, 81);
+         buttonStop.Location = new System.Drawing.Point(386, 63);
          buttonStop.Name = "buttonStop";
          buttonStop.Size = new System.Drawing.Size(85, 23);
          buttonStop.TabIndex = 5;
