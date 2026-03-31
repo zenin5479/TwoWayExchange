@@ -8,7 +8,7 @@ namespace SyncServer
    public partial class MainForm : Form
    {
       private NamedPipeServerStream _server;
-      private StreamReader reader;
+      private StreamReader _reader;
       private StreamWriter writer;
 
       public MainForm()
@@ -32,13 +32,13 @@ namespace SyncServer
          _server.WaitForConnection(); // блокирует UI, но форма уже видима
          Log("Клиент подключился");
 
-         reader = new StreamReader(_server);
+         _reader = new StreamReader(_server);
          writer = new StreamWriter(_server) { AutoFlush = true };
 
          while (true)
          {
             Log("Ожидание команды...");
-            string command = reader.ReadLine();
+            string command = _reader.ReadLine();
             if (command == null) break;
 
             Log($"Получено: {command}");
@@ -54,7 +54,7 @@ namespace SyncServer
          }
 
          // Очистка ресурсов
-         reader?.Dispose();
+         _reader?.Dispose();
          writer?.Dispose();
          _server?.Disconnect();
          _server?.Dispose();
