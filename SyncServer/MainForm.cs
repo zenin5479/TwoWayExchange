@@ -46,14 +46,14 @@ namespace SyncServer
 
             string response = command.ToUpperInvariant();
             _writer.WriteLine(response);
-            Log($"Отправлено: {response}");
+            Log(string.Format("Отправлено: {0}", response));
          }
 
          // Очистка ресурсов
-         _reader?.Dispose();
-         _writer?.Dispose();
-         _server?.Disconnect();
-         _server?.Dispose();
+         _reader.Dispose();
+         _writer.Dispose();
+         _server.Disconnect();
+         _server.Dispose();
 
          Log("Сервер остановлен");
          buttonStart.Enabled = true;
@@ -63,7 +63,7 @@ namespace SyncServer
       private void buttonStop_Click(object sender, EventArgs e)
       {
          // Принудительное закрытие (клиент получит исключение, но это единственный способ)
-         _server?.Close();
+         _server.Close();
          Log("Остановка сервера (принудительно)");
       }
 
