@@ -16,10 +16,7 @@ namespace SyncServer
          InitializeComponent();
       }
 
-      private void Log(string message)
-      {
-         textBoxLog.AppendText(string.Format("{0:HH:mm:ss} - {1}{2}", DateTime.Now, message, Environment.NewLine));
-      }
+
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
@@ -69,6 +66,11 @@ namespace SyncServer
          // Принудительное закрытие (клиент получит исключение, но это единственный способ)
          _server?.Close();
          Log("Остановка сервера (принудительно)");
+      }
+
+      private void Log(string message)
+      {
+         textBoxLog.AppendText(string.Format("{0:HH:mm:ss} - {1}{2}", DateTime.Now, message, Environment.NewLine));
       }
    }
 }
