@@ -37,7 +37,7 @@ namespace SyncServer
                      break;
                   }
 
-                  Log($"Получено: {command}");
+                  Log(string.Format("Получено: {0}", command));
 
                   if (command.Equals("exit", StringComparison.OrdinalIgnoreCase))
                   {
