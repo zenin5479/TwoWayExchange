@@ -63,6 +63,7 @@
          // 
          // buttonStop
          // 
+         buttonStop.Enabled = false;
          buttonStop.Location = new System.Drawing.Point(316, 81);
          buttonStop.Name = "buttonStop";
          buttonStop.Size = new System.Drawing.Size(85, 23);
