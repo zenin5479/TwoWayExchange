@@ -9,7 +9,7 @@ namespace SyncServer
    {
       private NamedPipeServerStream _server;
       private StreamReader _reader;
-      private StreamWriter writer;
+      private StreamWriter _writer;
 
       public MainForm()
       {
@@ -33,7 +33,7 @@ namespace SyncServer
          Log("Клиент подключился");
 
          _reader = new StreamReader(_server);
-         writer = new StreamWriter(_server) { AutoFlush = true };
+         _writer = new StreamWriter(_server) { AutoFlush = true };
 
          while (true)
          {
@@ -49,13 +49,13 @@ namespace SyncServer
             }
 
             string response = command.ToUpperInvariant();
-            writer.WriteLine(response);
+            _writer.WriteLine(response);
             Log($"Отправлено: {response}");
          }
 
          // Очистка ресурсов
          _reader?.Dispose();
-         writer?.Dispose();
+         _writer?.Dispose();
          _server?.Disconnect();
          _server?.Dispose();
 
