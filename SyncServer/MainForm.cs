@@ -25,30 +25,32 @@ namespace SyncServer
             Log("Клиент подключился");
 
             using (StreamReader reader = new StreamReader(server))
-            using (StreamWriter writer = new StreamWriter(server))
             {
-               writer.AutoFlush = true;
-               while (true)
+               using (StreamWriter writer = new StreamWriter(server))
                {
-                  Log("Ожидание команды...");
-                  string command = reader.ReadLine();
-                  if (command == null)
+                  writer.AutoFlush = true;
+                  while (true)
                   {
-                     break;
+                     Log("Ожидание команды...");
+                     string command = reader.ReadLine();
+                     if (command == null)
+                     {
+                        break;
+                     }
+
+                     Log(string.Format("Получено: {0}", command));
+
+                     if (command.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                     {
+                        Log("Завершение по команде exit");
+                        break;
+                     }
+
+                     // Формируем ответ
+                     string response = command.ToUpperInvariant();
+                     writer.WriteLine(response);
+                     Log(string.Format("Отправлено: {0}", response));
                   }
-
-                  Log(string.Format("Получено: {0}", command));
-
-                  if (command.Equals("exit", StringComparison.OrdinalIgnoreCase))
-                  {
-                     Log("Завершение по команде exit");
-                     break;
-                  }
-
-                  // Формируем ответ
-                  string response = command.ToUpperInvariant();
-                  writer.WriteLine(response);
-                  Log(string.Format("Отправлено: {0}", response));
                }
             }
 
