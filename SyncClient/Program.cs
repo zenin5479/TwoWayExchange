@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Threading;
 
 namespace SyncClient
 {
@@ -20,12 +21,16 @@ namespace SyncClient
                writer.AutoFlush = true;
                using (StreamReader reader = new StreamReader(client))
                {
-                  
-                  
-                  
-                  
-                  
-                  
+
+
+                  int counter = 0;
+
+                  // Имитация длительных вычислений
+                  Thread.Sleep(1000); // можно заменить на реальные расчёты
+                  double result = Math.Sqrt(counter++ * 1000);
+                  // Отправляем результат в stdout
+                  Console.WriteLine($"Результат: {result:F2}");
+
                   while (true)
                   {
                      Console.Write("Введите команду (или 'exit'): ");
