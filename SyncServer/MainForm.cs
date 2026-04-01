@@ -25,7 +25,7 @@ namespace SyncServer
          buttonStart.Enabled = false;
          textBoxLog.Clear();
 
-         AppendText("Сервер запущен, ожидание подключения...");
+         Log("Сервер запущен, ожидание подключения...");
 
          // Создаём серверный канал (одно подключение, режим сообщений)
          using (var server = new NamedPipeServerStream("mypipe", PipeDirection.InOut, 1, PipeTransmissionMode.Message))
@@ -34,36 +34,36 @@ namespace SyncServer
             {
                // Синхронное ожидание подключения – UI блокируется до подключения клиента
                server.WaitForConnection();
-               AppendText("Клиент подключён.");
+               Log("Клиент подключён.");
 
                // Чтение сообщения от клиента
                byte[] buffer = new byte[1024];
                int bytesRead = server.Read(buffer, 0, buffer.Length);
                string clientMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-               AppendText($"Получено от клиента: {clientMessage}");
+               Log($"Получено от клиента: {clientMessage}");
 
                // Отправка ответа клиенту
                string reply = $"Сервер получил: \"{clientMessage}\"";
                byte[] replyBytes = Encoding.UTF8.GetBytes(reply);
                server.Write(replyBytes, 0, replyBytes.Length);
-               AppendText($"Отправлено клиенту: {reply}");
+               Log($"Отправлено клиенту: {reply}");
 
                // (Опционально) можно прочитать подтверждение от клиента, если нужно
                // Здесь для простоты обмен завершён.
             }
             catch (Exception ex)
             {
-               AppendText($"Ошибка: {ex.Message}");
+               Log($"Ошибка: {ex.Message}");
             }
             finally
             {
                server.Disconnect();
-               AppendText("Канал закрыт.");
+               Log("Канал закрыт.");
             }
          }
 
-         AppendText("Сервер завершил работу.");
-         btnStartServer.Enabled = true;
+         Log("Сервер завершил работу.");
+         buttonStart.Enabled = true;
       }
 
       private void buttonStop_Click(object sender, EventArgs e)
