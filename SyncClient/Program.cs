@@ -29,7 +29,7 @@ namespace SyncClient
                   Thread.Sleep(1000); // можно заменить на реальные расчёты
                   double result = Math.Sqrt(counter++ * 1000);
                   // Отправляем результат в stdout
-                  Console.WriteLine($"Результат: {result:F2}");
+                  Console.WriteLine(string.Format("Результат: {0:F2}", result));
 
                   while (true)
                   {
