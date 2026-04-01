@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SyncServer
@@ -47,6 +48,9 @@ namespace SyncServer
             string response = command.ToUpperInvariant();
             _writer.WriteLine(response);
             Log(string.Format("Отправлено: {0}", response));
+            // Имитация длительных вычислений
+            Thread.Sleep(100);
+
             counter++;
          }
 
