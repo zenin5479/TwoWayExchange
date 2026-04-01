@@ -20,6 +20,12 @@ namespace SyncClient
                writer.AutoFlush = true;
                using (StreamReader reader = new StreamReader(client))
                {
+                  
+                  
+                  
+                  
+                  
+                  
                   while (true)
                   {
                      Console.Write("Введите команду (или 'exit'): ");
