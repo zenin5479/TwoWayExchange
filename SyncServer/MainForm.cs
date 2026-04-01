@@ -23,7 +23,7 @@ namespace SyncServer
          Log("Сервер запущен, ожидание подключения...");
 
          // Создаём серверный канал (одно подключение, режим сообщений)
-         using (var server = new NamedPipeServerStream("mypipe", PipeDirection.InOut, 1, PipeTransmissionMode.Message))
+         using (NamedPipeServerStream server = new NamedPipeServerStream("mypipe", PipeDirection.InOut, 1, PipeTransmissionMode.Message))
          {
             try
             {
@@ -44,7 +44,7 @@ namespace SyncServer
                Log(string.Format("Отправлено клиенту: {0}", reply));
 
                // (Опционально) можно прочитать подтверждение от клиента, если нужно
-               // Здесь для простоты обмен завершён.
+               // Здесь для простоты обмен завершён
             }
             catch (Exception ex)
             {

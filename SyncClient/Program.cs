@@ -17,7 +17,7 @@ namespace SyncClient
                // Подключаемся к серверу (таймаут 1 секунда)
                client.Connect(1000);
                client.ReadMode = PipeTransmissionMode.Message;
-               Console.WriteLine("Подключено к серверу.");
+               Console.WriteLine("Подключено к серверу");
 
                // Отправляем сообщение серверу
                string message = "Привет от консольного клиента!";
@@ -37,7 +37,7 @@ namespace SyncClient
             }
          }
 
-         Console.WriteLine("Клиент завершил работу. Нажмите Enter для выхода.");
+         Console.WriteLine("Клиент завершил работу. Нажмите Enter для выхода");
          Console.ReadLine();
       }
    }
