@@ -32,7 +32,8 @@ namespace SyncServer
          _writer = new StreamWriter(_server);
          _writer.AutoFlush = true;
 
-         while (true)
+         int counter = 0;
+         while (counter < 100)
          {
             Log("Ожидание команды...");
             string command = _reader.ReadLine();
@@ -46,6 +47,7 @@ namespace SyncServer
             string response = command.ToUpperInvariant();
             _writer.WriteLine(response);
             Log(string.Format("Отправлено: {0}", response));
+            counter++;
          }
 
          // Очистка ресурсов
