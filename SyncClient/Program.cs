@@ -19,7 +19,6 @@ namespace SyncClient
             using (StreamWriter writer = new StreamWriter(client))
             {
                writer.AutoFlush = true;
-
                int counter = 0;
                while (counter <= 1000)
                {
