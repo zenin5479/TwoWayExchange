@@ -8,7 +8,7 @@ namespace SyncServer
 {
    public partial class MainForm : Form
    {
-      private StreamWriter _writer;
+      private NamedPipeServerStream _server;
 
       public MainForm()
       {
