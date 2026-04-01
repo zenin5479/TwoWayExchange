@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SyncServer
 {
@@ -19,50 +21,49 @@ namespace SyncServer
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
+         // Блокируем кнопку на время работы сервера
          buttonStart.Enabled = false;
-         buttonStop.Enabled = true;
-         Log("Сервер запущен, ожидание подключения...");
+         textBoxLog.Clear();
 
-         // Всё выполняется синхронно в потоке UI – форма замрёт до завершения
-         _server = new NamedPipeServerStream("myPipe", PipeDirection.InOut);
-         // Блокирует UI, но форма уже видима
-         _server.WaitForConnection();
-         Log("Клиент подключился");
+         AppendText("Сервер запущен, ожидание подключения...");
 
-         _reader = new StreamReader(_server);
-         _writer = new StreamWriter(_server);
-         _writer.AutoFlush = true;
-
-         int counter = 0;
-         while (counter < 100)
+         // Создаём серверный канал (одно подключение, режим сообщений)
+         using (var server = new NamedPipeServerStream("mypipe", PipeDirection.InOut, 1, PipeTransmissionMode.Message))
          {
-            Log("Ожидание команды...");
-            string command = _reader.ReadLine();
-            if (command == null)
+            try
             {
-               break;
+               // Синхронное ожидание подключения – UI блокируется до подключения клиента
+               server.WaitForConnection();
+               AppendText("Клиент подключён.");
+
+               // Чтение сообщения от клиента
+               byte[] buffer = new byte[1024];
+               int bytesRead = server.Read(buffer, 0, buffer.Length);
+               string clientMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+               AppendText($"Получено от клиента: {clientMessage}");
+
+               // Отправка ответа клиенту
+               string reply = $"Сервер получил: \"{clientMessage}\"";
+               byte[] replyBytes = Encoding.UTF8.GetBytes(reply);
+               server.Write(replyBytes, 0, replyBytes.Length);
+               AppendText($"Отправлено клиенту: {reply}");
+
+               // (Опционально) можно прочитать подтверждение от клиента, если нужно
+               // Здесь для простоты обмен завершён.
             }
-
-            Log(string.Format("Получено: {0}", command));
-
-            string response = command.ToUpperInvariant();
-            _writer.WriteLine(response);
-            Log(string.Format("Отправлено: {0}", response));
-            // Имитация длительных вычислений
-            Thread.Sleep(100);
-
-            counter++;
+            catch (Exception ex)
+            {
+               AppendText($"Ошибка: {ex.Message}");
+            }
+            finally
+            {
+               server.Disconnect();
+               AppendText("Канал закрыт.");
+            }
          }
 
-         // Очистка ресурсов
-         _reader.Dispose();
-         _writer.Dispose();
-         _server.Disconnect();
-         _server.Dispose();
-
-         Log("Сервер остановлен");
-         buttonStart.Enabled = true;
-         buttonStop.Enabled = false;
+         AppendText("Сервер завершил работу.");
+         btnStartServer.Enabled = true;
       }
 
       private void buttonStop_Click(object sender, EventArgs e)

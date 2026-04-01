@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Text;
 using System.Threading;
 
 namespace SyncClient
@@ -9,34 +10,37 @@ namespace SyncClient
    {
       static void Main()
       {
-         using (NamedPipeClientStream client = new NamedPipeClientStream(".", "myPipe", PipeDirection.InOut))
-         {
-            Console.WriteLine("Подключение к серверу...");
-            // Синхронное подключение
-            client.Connect();
-            Console.WriteLine("Подключено!");
+         Console.WriteLine("Клиент запущен. Попытка подключения к серверу...");
 
-            using (StreamWriter writer = new StreamWriter(client))
+         using (var client = new NamedPipeClientStream(".", "mypipe", PipeDirection.InOut, PipeOptions.None))
+         {
+            try
             {
-               writer.AutoFlush = true;
-               using (StreamReader reader = new StreamReader(client))
-               {
-                  int counter = 0;
-                  while (counter < 100)
-                  {
-                     // Имитация длительных вычислений
-                     Thread.Sleep(100); // можно заменить на реальные расчёты
-                     double result = Math.Sqrt(counter * 1000);
-                     // Отправляем результат в stdout
-                     Console.WriteLine("Результат: {0:F2}", result);
-                     writer.WriteLine(result);
-                     counter++;
-                     string response = reader.ReadLine();
-                     Console.WriteLine("Ответ сервера: {0}", response);
-                  }
-               }
+               // Подключаемся к серверу (таймаут 5 секунд)
+               client.Connect(5000);
+               client.ReadMode = PipeTransmissionMode.Message;
+               Console.WriteLine("Подключено к серверу.");
+
+               // Отправляем сообщение серверу
+               string message = "Привет от консольного клиента!";
+               byte[] messageBytes = Encoding.UTF8.GetBytes(message);
+               client.Write(messageBytes, 0, messageBytes.Length);
+               Console.WriteLine($"Отправлено: {message}");
+
+               // Читаем ответ
+               byte[] buffer = new byte[1024];
+               int bytesRead = client.Read(buffer, 0, buffer.Length);
+               string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+               Console.WriteLine($"Получен ответ: {response}");
+            }
+            catch (Exception ex)
+            {
+               Console.WriteLine($"Ошибка: {ex.Message}");
             }
          }
+
+         Console.WriteLine("Клиент завершил работу. Нажмите Enter для выхода.");
+         Console.ReadLine();
       }
    }
 }
