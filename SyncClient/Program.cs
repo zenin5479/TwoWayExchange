@@ -21,7 +21,7 @@ namespace SyncClient
                writer.AutoFlush = true;
 
                int counter = 0;
-               while (true)
+               while (counter <= 1000)
                {
                   // Имитация длительных вычислений
                   Thread.Sleep(100); // можно заменить на реальные расчёты
@@ -30,7 +30,6 @@ namespace SyncClient
                   Console.WriteLine("Результат: {0:F2}", result);
                   writer.WriteLine(result);
                }
-
             }
          }
       }
