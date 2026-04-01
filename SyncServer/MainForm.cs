@@ -36,20 +36,20 @@ namespace SyncServer
                byte[] buffer = new byte[1024];
                int bytesRead = server.Read(buffer, 0, buffer.Length);
                string clientMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-               Log($"Получено от клиента: {clientMessage}");
+               Log(string.Format("Получено от клиента: {0}", clientMessage));
 
                // Отправка ответа клиенту
-               string reply = $"Сервер получил: \"{clientMessage}\"";
+               string reply = string.Format("Сервер получил: \"{0}\"", clientMessage);
                byte[] replyBytes = Encoding.UTF8.GetBytes(reply);
                server.Write(replyBytes, 0, replyBytes.Length);
-               Log($"Отправлено клиенту: {reply}");
+               Log(string.Format("Отправлено клиенту: {0}", reply));
 
                // (Опционально) можно прочитать подтверждение от клиента, если нужно
                // Здесь для простоты обмен завершён.
             }
             catch (Exception ex)
             {
-               Log($"Ошибка: {ex.Message}");
+               Log(string.Format("Ошибка: {0}", ex.Message));
             }
             finally
             {
