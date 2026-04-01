@@ -39,11 +39,8 @@ namespace SyncServer
             if (command == null) break;
 
             Log(string.Format("Получено: {0}", command));
-            if (command.Equals("exit", StringComparison.OrdinalIgnoreCase))
-            {
-               Log("Завершение по команде exit");
-               break;
-            }
+           
+            
 
             string response = command.ToUpperInvariant();
             _writer.WriteLine(response);
@@ -51,8 +48,8 @@ namespace SyncServer
          }
 
          // Очистка ресурсов
-         _reader.Dispose();
-         _writer.Dispose();
+         //_reader.Dispose();
+         //_writer.Dispose();
          _server.Disconnect();
          _server.Dispose();
 
