@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.IO.Pipes;
 using System.Threading;
@@ -25,30 +26,18 @@ namespace SyncClient
 
                   int counter = 0;
 
-                  // Имитация длительных вычислений
-                  Thread.Sleep(1000); // можно заменить на реальные расчёты
-                  double result = Math.Sqrt(counter++ * 1000);
-                  // Отправляем результат в stdout
-                  Console.WriteLine(string.Format("Результат: {0:F2}", result));
+
+
 
                   while (true)
                   {
-                     Console.Write("Введите команду (или 'exit'): ");
-                     string input = Console.ReadLine();
-                     if (string.IsNullOrEmpty(input))
-                     {
-                        continue;
-                     }
+                     // Имитация длительных вычислений
+                     Thread.Sleep(1000); // можно заменить на реальные расчёты
+                     double result = Math.Sqrt(counter++ * 1000);
+                     // Отправляем результат в stdout
+                     Console.WriteLine("Результат: {0:F2}", result);
+                     writer.WriteLine(result);
 
-                     writer.WriteLine(input);
-
-                     if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
-                     {
-                        break;
-                     }
-
-                     string response = reader.ReadLine();
-                     Console.WriteLine("Ответ сервера: {0}", response);
                   }
                }
             }
