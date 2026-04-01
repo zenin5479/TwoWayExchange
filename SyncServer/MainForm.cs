@@ -2,9 +2,7 @@
 using System.IO;
 using System.IO.Pipes;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace SyncServer
 {
