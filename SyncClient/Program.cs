@@ -23,17 +23,17 @@ namespace SyncClient
                string message = "Привет от консольного клиента!";
                byte[] messageBytes = Encoding.UTF8.GetBytes(message);
                client.Write(messageBytes, 0, messageBytes.Length);
-               Console.WriteLine($"Отправлено: {message}");
+               Console.WriteLine(string.Format("Отправлено: {0}", message));
 
                // Читаем ответ
                byte[] buffer = new byte[1024];
                int bytesRead = client.Read(buffer, 0, buffer.Length);
                string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-               Console.WriteLine($"Получен ответ: {response}");
+               Console.WriteLine(string.Format("Получен ответ: {0}", response));
             }
             catch (Exception ex)
             {
-               Console.WriteLine($"Ошибка: {ex.Message}");
+               Console.WriteLine(string.Format("Ошибка: {0}", ex.Message));
             }
          }
 
