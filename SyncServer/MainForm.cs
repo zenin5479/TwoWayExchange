@@ -42,8 +42,6 @@ namespace SyncServer
             }
 
             Log(string.Format("Получено: {0}", command));
-           
-            
 
             string response = command.ToUpperInvariant();
             _writer.WriteLine(response);
