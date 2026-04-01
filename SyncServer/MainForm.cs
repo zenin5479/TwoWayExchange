@@ -29,7 +29,7 @@ namespace SyncServer
             {
                // Синхронное ожидание подключения – UI блокируется до подключения клиента
                server.WaitForConnection();
-               Log("Клиент подключён.");
+               Log("Клиент подключён");
 
                // Чтение сообщения от клиента
                byte[] buffer = new byte[1024];
@@ -53,11 +53,11 @@ namespace SyncServer
             finally
             {
                server.Disconnect();
-               Log("Канал закрыт.");
+               Log("Канал закрыт");
             }
          }
 
-         Log("Сервер завершил работу.");
+         Log("Сервер завершил работу");
          buttonStart.Enabled = true;
       }
 
