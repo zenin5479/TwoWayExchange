@@ -10,7 +10,7 @@ namespace SyncClient
       {
          Console.WriteLine("Клиент запущен. Попытка подключения к серверу...");
 
-         using (var client = new NamedPipeClientStream(".", "mypipe", PipeDirection.InOut, PipeOptions.None))
+         using (NamedPipeClientStream client = new NamedPipeClientStream(".", "mypipe", PipeDirection.InOut, PipeOptions.None))
          {
             try
             {
