@@ -8,9 +8,7 @@ namespace SyncServer
 {
    public partial class MainForm : Form
    {
-      private NamedPipeServerStream _pipeServer;
-      private StreamReader reader;
-      private StreamWriter writer;
+     
 
       public MainForm()
       {
@@ -19,16 +17,7 @@ namespace SyncServer
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
-         // Создаём сервер именованного канала
-         _pipeServer = new NamedPipeServerStream("my_named_pipe", PipeDirection.InOut);
-
-         // Ожидание подключения клиента (блокирующий вызов)
-         _pipeServer.WaitForConnection();
-
-         reader = new StreamReader(_pipeServer, Encoding.UTF8);
-         writer = new StreamWriter(_pipeServer, Encoding.UTF8) { AutoFlush = true };
-
-         MessageBox.Show("Клиент подключился!");
+         
       }
 
       private void buttonStop_Click(object sender, EventArgs e)
