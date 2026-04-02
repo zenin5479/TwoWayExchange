@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncServer", "SyncServer\SyncServer.csproj", "{DA95DA23-4578-470C-9B1D-339FCEF88A8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncServer", "SyncServer\SyncServer.csproj", "{DA95DA23-4578-470C-9B1D-339FCEF88A8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncClient", "SyncClient\SyncClient.csproj", "{BC85C9C8-4553-412B-90CF-F5D95EAD6078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SyncClient", "SyncClient\SyncClient.csproj", "{BC85C9C8-4553-412B-90CF-F5D95EAD6078}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{BC5D54D1-C546-480C-988D-DB53B3833FCB}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

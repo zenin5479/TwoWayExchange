@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SyncServer
@@ -73,6 +74,66 @@ namespace SyncServer
          {
             SendMessageToClient(message);
             txtMessage.Clear();
+         }
+      }
+
+      private void PipeTimer_Tick(object sender, EventArgs e)
+      {
+         if (!isConnected)
+         {
+            // Неблокирующая проверка подключения с коротким таймаутом
+            try
+            {
+               if (pipeServer.CanRead && !pipeServer.IsConnected)
+               {
+                  if (pipeServer.WaitForConnection(10)) // Таймаут 10 мс
+                  {
+                     OnClientConnected();
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               AppendLog($"Ошибка подключения: {ex.Message}");
+            }
+         }
+         else
+         {
+            // Проверка входящих сообщений
+            CheckForIncomingMessages();
+         }
+      }
+
+      private void OnClientConnected()
+      {
+         isConnected = true;
+         reader = new StreamReader(pipeServer, Encoding.UTF8);
+         writer = new StreamWriter(pipeServer, Encoding.UTF8) { AutoFlush = true };
+         AppendLog("Клиент подключился!");
+      }
+
+      private void CheckForIncomingMessages()
+      {
+         try
+         {
+            if (reader.Peek() > 0) // Есть данные для чтения?
+            {
+               string message = reader.ReadLine();
+               if (!string.IsNullOrEmpty(message))
+               {
+                  AppendLog($"Получено от клиента: {message}");
+
+                  // Автоматический ответ клиенту
+                  string response = $"Сервер получил: {message}";
+                  writer.WriteLine(response);
+                  AppendLog($"Отправлено клиенту: {response}");
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            AppendLog($"Ошибка чтения: {ex.Message}");
+            DisconnectClient();
          }
       }
 
