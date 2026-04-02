@@ -85,18 +85,18 @@
          // 
          // btnSend
          // 
-         btnSend.Location = new System.Drawing.Point(201, 12);
+         btnSend.Location = new System.Drawing.Point(12, 107);
          btnSend.Name = "btnSend";
-         btnSend.Size = new System.Drawing.Size(75, 23);
+         btnSend.Size = new System.Drawing.Size(182, 23);
          btnSend.TabIndex = 7;
          btnSend.Text = "кнопка отправки сообщения";
          btnSend.UseVisualStyleBackColor = true;
          // 
          // btnReceive
          // 
-         btnReceive.Location = new System.Drawing.Point(200, 92);
+         btnReceive.Location = new System.Drawing.Point(200, 107);
          btnReceive.Name = "btnReceive";
-         btnReceive.Size = new System.Drawing.Size(75, 23);
+         btnReceive.Size = new System.Drawing.Size(234, 23);
          btnReceive.TabIndex = 8;
          btnReceive.Text = "button1";
          btnReceive.UseVisualStyleBackColor = true;
