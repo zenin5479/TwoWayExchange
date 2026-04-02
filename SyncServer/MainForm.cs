@@ -21,8 +21,8 @@ namespace SyncServer
       private void ButtonSend_Click(object sender, EventArgs e)
       {
          // Создаём сервер канала (именованный канал)
-         using (NamedPipeServerStream server = new NamedPipeServerStream("twoWayPipe",
-                   PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.None)) // синхронный режим
+         using (NamedPipeServerStream server = new NamedPipeServerStream("twoWayPipe", PipeDirection.InOut,
+                   1, PipeTransmissionMode.Message, PipeOptions.None))
          {
             // Ожидаем подключения консольного приложения
             // ВНИМАНИЕ: блокирует UI поток
