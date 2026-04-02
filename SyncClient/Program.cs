@@ -18,22 +18,19 @@ namespace SyncClient
             var reader = new StreamReader(pipeClient, Encoding.UTF8);
             var writer = new StreamWriter(pipeClient, Encoding.UTF8) { AutoFlush = true };
 
-            while (true)
-            {
-               Console.Write("Введите сообщение для отправки (или 'exit' для выхода): ");
-               string message = Console.ReadLine();
 
-               if (message.ToLower() == "exit")
-                  break;
+            Console.Write("Введите сообщение для отправки (или 'exit' для выхода): ");
+            string message = Console.ReadLine();
 
-               // Отправляем сообщение серверу
-               writer.WriteLine(message);
-               Console.WriteLine($"Отправлено: {message}");
 
-               // Получаем ответ от сервера
-               string response = reader.ReadLine();
-               Console.WriteLine($"Получено от сервера: {response}");
-            }
+            // Отправляем сообщение серверу
+            writer.WriteLine(message);
+            Console.WriteLine($"Отправлено: {message}");
+
+            // Получаем ответ от сервера
+            string response = reader.ReadLine();
+            Console.WriteLine($"Получено от сервера: {response}");
+
          }
       }
    }
