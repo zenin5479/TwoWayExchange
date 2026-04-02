@@ -52,7 +52,11 @@ namespace SyncServer
 
       private void btnReceive_Click(object sender, EventArgs e)
       {
-
+         string received = ReceiveMessageFromClient();
+         if (!string.IsNullOrEmpty(received))
+         {
+            txtLog.AppendText($"Получено: {received}\r\n");
+         }
       }
 
       // Отправка сообщения клиенту
