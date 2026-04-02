@@ -21,7 +21,8 @@ namespace SyncServer
       private void ButtonSend_Click(object sender, EventArgs e)
       {
          // Создаём сервер канала (именованный канал)
-         using (NamedPipeServerStream server = new NamedPipeServerStream("twoWayPipe", PipeDirection.InOut,
+         string pipeName = "twoWayPipe";
+         using (NamedPipeServerStream server = new NamedPipeServerStream(pipeName, PipeDirection.InOut,
                    1, PipeTransmissionMode.Message, PipeOptions.None))
          {
             // Ожидаем подключения консольного приложения
@@ -35,12 +36,16 @@ namespace SyncServer
                   // Отправляем текст из TextBox
                   string request = txtMessage.Text;
                   writer.WriteLine(request);
-                  Text = "Ожидание ответа...";
+                  txtLog.Text = string.Format("Ответ клиента: {0}",); 
+                  
+                  // Теперь pipeName доступен в вашем коде
+         Console.WriteLine(string.Format("Имя канала: {0}", pipeName));
+
+                  txtLog.Text = "Ожидание ответа...";
 
                   // Синхронно читаем ответ (блокировка)
                   string response = reader.ReadLine();
                   txtLog.Text = string.Format("Ответ клиента: {0}", response);
-                  Text = "WinForms + Named Pipe (синхронно)";
                }
             }
             // Канал закрывается автоматически (using)
