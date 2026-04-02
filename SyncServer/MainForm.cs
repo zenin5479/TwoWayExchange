@@ -41,7 +41,7 @@ namespace SyncServer
                // Синхронно читаем ответ (блокировка)
                string response = reader.ReadLine();
                txtLog.Text = string.Format("Ответ клиента: {0}", response);
-               this.Text = "WinForms + Named Pipe (синхронно)";
+               Text = "WinForms + Named Pipe (синхронно)";
             }
             // Канал закрывается автоматически (using)
          }
