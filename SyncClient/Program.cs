@@ -21,12 +21,12 @@ namespace SyncClient
             writer.AutoFlush = true;
 
             string received = reader.ReadLine();
-            Console.WriteLine($"Клиент получил: {received}");
+            Console.WriteLine("Клиент получил: {0}", received);
 
             // Формирование ответа
-            string response = $"Ответ на '{received}'";
+            string response = string.Format("Ответ на '{0}'", received);
             writer.WriteLine(response);
-            Console.WriteLine($"Клиент отправил: {response}");
+            Console.WriteLine("Клиент отправил: {0}", response);
 
             Console.WriteLine("Нажмите любую клавишу для выхода...");
             Console.ReadKey();
