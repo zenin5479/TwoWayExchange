@@ -64,7 +64,7 @@
          ButtonStart.TabIndex = 4;
          ButtonStart.Text = "Запустить сервер";
          ButtonStart.UseVisualStyleBackColor = true;
-         ButtonStart.Click += buttonStart_Click;
+         ButtonStart.Click += ButtonStart_Click;
          // 
          // buttonStop
          // 
@@ -75,11 +75,12 @@
          buttonStop.TabIndex = 5;
          buttonStop.Text = "Остановить";
          buttonStop.UseVisualStyleBackColor = true;
-         buttonStop.Click += buttonStop_Click;
+         buttonStop.Click += ButtonStop_Click;
          // 
          // txtMessage
          // 
          txtMessage.Location = new System.Drawing.Point(12, 63);
+         txtMessage.Multiline = true;
          txtMessage.Name = "txtMessage";
          txtMessage.Size = new System.Drawing.Size(100, 23);
          txtMessage.TabIndex = 6;
@@ -92,7 +93,7 @@
          btnSend.TabIndex = 7;
          btnSend.Text = "кнопка отправки сообщения";
          btnSend.UseVisualStyleBackColor = true;
-         btnSend.Click += btnSend_Click;
+         btnSend.Click += ButtonSend_Click;
          // 
          // btnReceive
          // 
@@ -102,7 +103,7 @@
          btnReceive.TabIndex = 8;
          btnReceive.Text = "кнопка приёма сообщения";
          btnReceive.UseVisualStyleBackColor = true;
-         btnReceive.Click += btnReceive_Click;
+         btnReceive.Click += ButtonReceive_Click;
          // 
          // MainForm
          // 
