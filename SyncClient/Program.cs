@@ -29,5 +29,6 @@ namespace SyncClient
             Console.WriteLine("Нажмите любую клавишу для выхода...");
             Console.ReadKey();
          }
+      }
    }
 }
