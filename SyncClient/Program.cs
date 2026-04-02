@@ -12,7 +12,8 @@ namespace SyncClient
          using (NamedPipeClientStream client = new NamedPipeClientStream(".", "twoWayPipe", PipeDirection.InOut))
          {
             Console.WriteLine("Клиент: подключение к каналу...");
-            client.Connect(); // Синхронное подключение
+            // Синхронное подключение
+            client.Connect(); 
 
             // Чтение сообщения от WinForms
             StreamReader reader = new StreamReader(client);
