@@ -28,17 +28,19 @@ namespace SyncServer
             // ВНИМАНИЕ: блокирует UI поток
             server.WaitForConnection();
             using (var reader = new StreamReader(server))
-            using (var writer = new StreamWriter(server) { AutoFlush = true })
             {
-               // Отправляем текст из TextBox
-               string request = txtMessage.Text;
-               writer.WriteLine(request);
-               Text = "Ожидание ответа...";
+               using (var writer = new StreamWriter(server) { AutoFlush = true })
+               {
+                  // Отправляем текст из TextBox
+                  string request = txtMessage.Text;
+                  writer.WriteLine(request);
+                  Text = "Ожидание ответа...";
 
-               // Синхронно читаем ответ (блокировка)
-               string response = reader.ReadLine();
-               txtLog.Text = string.Format("Ответ клиента: {0}", response);
-               Text = "WinForms + Named Pipe (синхронно)";
+                  // Синхронно читаем ответ (блокировка)
+                  string response = reader.ReadLine();
+                  txtLog.Text = string.Format("Ответ клиента: {0}", response);
+                  Text = "WinForms + Named Pipe (синхронно)";
+               }
             }
             // Канал закрывается автоматически (using)
          }
