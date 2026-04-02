@@ -34,13 +34,13 @@ namespace SyncServer
             using (var writer = new StreamWriter(server) { AutoFlush = true })
             {
                // Отправляем текст из TextBox
-               string request = txtInput.Text;
+               string request = txtMessage.Text;
                writer.WriteLine(request);
                this.Text = "Ожидание ответа...";
 
                // Синхронно читаем ответ (блокировка)
                string response = reader.ReadLine();
-               lblResult.Text = $"Ответ клиента: {response}";
+               txtLog.Text = $"Ответ клиента: {response}";
                this.Text = "WinForms + Named Pipe (синхронно)";
             }
             // Канал закрывается автоматически (using)
