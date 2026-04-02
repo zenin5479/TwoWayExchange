@@ -1,6 +1,6 @@
-﻿using System.IO.Pipes;
+﻿using System;
 using System.IO;
-using System;
+using System.IO.Pipes;
 
 namespace SyncClient
 {
