@@ -36,11 +36,8 @@ namespace SyncServer
                   // Отправляем текст из TextBox
                   string request = txtMessage.Text;
                   writer.WriteLine(request);
-                  txtLog.Text = string.Format("Ответ клиента: {0}",);
-
                   // Теперь pipeName доступен в вашем коде
-                  Console.WriteLine(string.Format("Имя канала: {0}", pipeName));
-
+                  txtLog.Text = string.Format("Имя канала: {0}", pipeName);
                   txtLog.Text = "Ожидание ответа...";
 
                   // Синхронно читаем ответ (блокировка)
