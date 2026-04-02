@@ -98,7 +98,7 @@
          btnReceive.Name = "btnReceive";
          btnReceive.Size = new System.Drawing.Size(234, 23);
          btnReceive.TabIndex = 8;
-         btnReceive.Text = "button1";
+         btnReceive.Text = "кнопка приёма сообщения";
          btnReceive.UseVisualStyleBackColor = true;
          // 
          // MainForm
