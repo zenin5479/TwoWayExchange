@@ -29,8 +29,9 @@ namespace SyncServer
             server.WaitForConnection();
             using (var reader = new StreamReader(server))
             {
-               using (var writer = new StreamWriter(server) { AutoFlush = true })
+               using (var writer = new StreamWriter(server))
                {
+                  writer.AutoFlush = true;
                   // Отправляем текст из TextBox
                   string request = txtMessage.Text;
                   writer.WriteLine(request);
