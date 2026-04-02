@@ -33,7 +33,7 @@
          ButtonStart = new System.Windows.Forms.Button();
          ButtonStop = new System.Windows.Forms.Button();
          txtMessage = new System.Windows.Forms.TextBox();
-         btnSend = new System.Windows.Forms.Button();
+         ButtonSend = new System.Windows.Forms.Button();
          btnReceive = new System.Windows.Forms.Button();
          SuspendLayout();
          // 
@@ -85,15 +85,15 @@
          txtMessage.Size = new System.Drawing.Size(100, 23);
          txtMessage.TabIndex = 6;
          // 
-         // btnSend
+         // ButtonSend
          // 
-         btnSend.Location = new System.Drawing.Point(12, 107);
-         btnSend.Name = "btnSend";
-         btnSend.Size = new System.Drawing.Size(182, 23);
-         btnSend.TabIndex = 7;
-         btnSend.Text = "кнопка отправки сообщения";
-         btnSend.UseVisualStyleBackColor = true;
-         btnSend.Click += ButtonSend_Click;
+         ButtonSend.Location = new System.Drawing.Point(12, 107);
+         ButtonSend.Name = "ButtonSend";
+         ButtonSend.Size = new System.Drawing.Size(182, 23);
+         ButtonSend.TabIndex = 7;
+         ButtonSend.Text = "кнопка отправки сообщения";
+         ButtonSend.UseVisualStyleBackColor = true;
+         ButtonSend.Click += ButtonSend_Click;
          // 
          // btnReceive
          // 
@@ -111,7 +111,7 @@
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          ClientSize = new System.Drawing.Size(446, 295);
          Controls.Add(btnReceive);
-         Controls.Add(btnSend);
+         Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
          Controls.Add(ButtonStop);
          Controls.Add(ButtonStart);
@@ -131,7 +131,7 @@
       private System.Windows.Forms.Button ButtonStart;
       private System.Windows.Forms.Button ButtonStop;
       private System.Windows.Forms.TextBox txtMessage;
-      private System.Windows.Forms.Button btnSend;
+      private System.Windows.Forms.Button ButtonSend;
       private System.Windows.Forms.Button btnReceive;
    }
 }
