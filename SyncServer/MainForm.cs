@@ -36,7 +36,7 @@ namespace SyncServer
                // Отправляем текст из TextBox
                string request = txtMessage.Text;
                writer.WriteLine(request);
-               this.Text = "Ожидание ответа...";
+               Text = "Ожидание ответа...";
 
                // Синхронно читаем ответ (блокировка)
                string response = reader.ReadLine();
