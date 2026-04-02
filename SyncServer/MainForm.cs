@@ -8,7 +8,7 @@ namespace SyncServer
 {
    public partial class MainForm : Form
    {
-      
+
       public MainForm()
       {
          InitializeComponent();
@@ -16,21 +16,21 @@ namespace SyncServer
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
-         
+
       }
 
-      
+
 
 
       private void buttonStop_Click(object sender, EventArgs e)
       {
-         
+
       }
 
 
       private void btnSend_Click(object sender, EventArgs e)
       {
-        
+
       }
 
 

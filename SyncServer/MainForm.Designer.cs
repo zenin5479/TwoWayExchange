@@ -30,7 +30,7 @@
       {
          txtLog = new System.Windows.Forms.TextBox();
          Label = new System.Windows.Forms.Label();
-         buttonStart = new System.Windows.Forms.Button();
+         ButtonStart = new System.Windows.Forms.Button();
          buttonStop = new System.Windows.Forms.Button();
          txtMessage = new System.Windows.Forms.TextBox();
          btnSend = new System.Windows.Forms.Button();
@@ -56,15 +56,15 @@
          Label.TabIndex = 2;
          Label.Text = "Сервер запущен, ожидание подключения...";
          // 
-         // buttonStart
+         // ButtonStart
          // 
-         buttonStart.Location = new System.Drawing.Point(12, 12);
-         buttonStart.Name = "buttonStart";
-         buttonStart.Size = new System.Drawing.Size(120, 23);
-         buttonStart.TabIndex = 4;
-         buttonStart.Text = "Запустить сервер";
-         buttonStart.UseVisualStyleBackColor = true;
-         buttonStart.Click += buttonStart_Click;
+         ButtonStart.Location = new System.Drawing.Point(12, 12);
+         ButtonStart.Name = "ButtonStart";
+         ButtonStart.Size = new System.Drawing.Size(120, 23);
+         ButtonStart.TabIndex = 4;
+         ButtonStart.Text = "Запустить сервер";
+         ButtonStart.UseVisualStyleBackColor = true;
+         ButtonStart.Click += buttonStart_Click;
          // 
          // buttonStop
          // 
@@ -113,7 +113,7 @@
          Controls.Add(btnSend);
          Controls.Add(txtMessage);
          Controls.Add(buttonStop);
-         Controls.Add(buttonStart);
+         Controls.Add(ButtonStart);
          Controls.Add(txtLog);
          Controls.Add(Label);
          Name = "MainForm";
@@ -127,7 +127,7 @@
 
       private System.Windows.Forms.TextBox txtLog;
       private System.Windows.Forms.Label Label;
-      private System.Windows.Forms.Button buttonStart;
+      private System.Windows.Forms.Button ButtonStart;
       private System.Windows.Forms.Button buttonStop;
       private System.Windows.Forms.TextBox txtMessage;
       private System.Windows.Forms.Button btnSend;
