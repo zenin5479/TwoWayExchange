@@ -27,7 +27,7 @@ namespace SyncServer
             // Ожидаем подключения консольного приложения
             // ВНИМАНИЕ: блокирует UI поток
             server.WaitForConnection();
-            using (var reader = new StreamReader(server))
+            using (StreamReader reader = new StreamReader(server))
             {
                using (var writer = new StreamWriter(server))
                {
