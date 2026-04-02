@@ -91,6 +91,7 @@
          btnSend.TabIndex = 7;
          btnSend.Text = "кнопка отправки сообщения";
          btnSend.UseVisualStyleBackColor = true;
+         btnSend.Click += btnSend_Click;
          // 
          // btnReceive
          // 
@@ -100,6 +101,7 @@
          btnReceive.TabIndex = 8;
          btnReceive.Text = "кнопка приёма сообщения";
          btnReceive.UseVisualStyleBackColor = true;
+         btnReceive.Click += btnReceive_Click;
          // 
          // MainForm
          // 

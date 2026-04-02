@@ -42,5 +42,36 @@ namespace SyncServer
       {
          txtLog.AppendText(string.Format("{0:HH:mm:ss:fff} - {1}{2}", DateTime.Now, message, Environment.NewLine));
       }
+
+      private void btnSend_Click(object sender, EventArgs e)
+      {
+         string message = txtMessage.Text;
+         SendMessageToClient(message);
+         txtLog.AppendText($"Отправлено: {message}\r\n");
+      }
+
+      private void btnReceive_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      // Отправка сообщения клиенту
+      private void SendMessageToClient(string message)
+      {
+         if (pipeServer.IsConnected)
+         {
+            writer.WriteLine(message);
+         }
+      }
+
+      // Приём сообщения от клиента
+      private string ReceiveMessageFromClient()
+      {
+         if (pipeServer.IsConnected)
+         {
+            return reader.ReadLine();
+         }
+         return null;
+      }
    }
 }
