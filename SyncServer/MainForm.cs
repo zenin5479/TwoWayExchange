@@ -21,7 +21,18 @@ namespace SyncServer
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
+         pipeServer = new NamedPipeServerStream("my_named_pipe", PipeDirection.InOut);
 
+         SetupTimer();
+      }
+
+      private void SetupTimer()
+      {
+         pipeTimer = new Timer();
+         pipeTimer.Interval = 100; // Проверка каждые 100 мс
+         pipeTimer.Tick += PipeTimer_Tick;
+         pipeTimer.Start();
+         AppendLog("Сервер запущен. Ожидание подключения...");
       }
 
       private void buttonStop_Click(object sender, EventArgs e)
