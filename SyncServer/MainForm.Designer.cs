@@ -32,11 +32,12 @@
          Label = new System.Windows.Forms.Label();
          buttonStart = new System.Windows.Forms.Button();
          buttonStop = new System.Windows.Forms.Button();
+         txtMessage = new System.Windows.Forms.TextBox();
          SuspendLayout();
          // 
          // textBoxLog
          // 
-         textBoxLog.Location = new System.Drawing.Point(12, 63);
+         textBoxLog.Location = new System.Drawing.Point(12, 159);
          textBoxLog.Multiline = true;
          textBoxLog.Name = "textBoxLog";
          textBoxLog.ReadOnly = true;
@@ -73,11 +74,19 @@
          buttonStop.UseVisualStyleBackColor = true;
          buttonStop.Click += buttonStop_Click;
          // 
+         // txtMessage
+         // 
+         txtMessage.Location = new System.Drawing.Point(12, 63);
+         txtMessage.Name = "txtMessage";
+         txtMessage.Size = new System.Drawing.Size(100, 23);
+         txtMessage.TabIndex = 6;
+         // 
          // MainForm
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         ClientSize = new System.Drawing.Size(446, 201);
+         ClientSize = new System.Drawing.Size(446, 295);
+         Controls.Add(txtMessage);
          Controls.Add(buttonStop);
          Controls.Add(buttonStart);
          Controls.Add(textBoxLog);
@@ -95,5 +104,6 @@
       private System.Windows.Forms.Label Label;
       private System.Windows.Forms.Button buttonStart;
       private System.Windows.Forms.Button buttonStop;
+      private System.Windows.Forms.TextBox txtMessage;
    }
 }

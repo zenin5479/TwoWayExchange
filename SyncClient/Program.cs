@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.IO.Pipes;
 using System.Text;
 
@@ -8,37 +9,32 @@ namespace SyncClient
    {
       static void Main()
       {
-         Console.WriteLine("Клиент запущен. Попытка подключения к серверу...");
-
-         using (NamedPipeClientStream client = new NamedPipeClientStream(".", "mypipe", PipeDirection.InOut, PipeOptions.None))
+         using (var pipeClient = new NamedPipeClientStream(".", "my_named_pipe", PipeDirection.InOut))
          {
-            try
+            Console.WriteLine("Подключение к серверу...");
+            pipeClient.Connect(); // Блокирующий вызов до подключения сервера
+            Console.WriteLine("Подключено!");
+
+            var reader = new StreamReader(pipeClient, Encoding.UTF8);
+            var writer = new StreamWriter(pipeClient, Encoding.UTF8) { AutoFlush = true };
+
+            while (true)
             {
-               // Подключаемся к серверу (таймаут 1 секунда)
-               client.Connect(1000);
-               client.ReadMode = PipeTransmissionMode.Message;
-               Console.WriteLine("Подключено к серверу");
+               Console.Write("Введите сообщение для отправки (или 'exit' для выхода): ");
+               string message = Console.ReadLine();
+
+               if (message.ToLower() == "exit")
+                  break;
 
                // Отправляем сообщение серверу
-               string message = "Привет от консольного клиента!";
-               byte[] messageBytes = Encoding.UTF8.GetBytes(message);
-               client.Write(messageBytes, 0, messageBytes.Length);
-               Console.WriteLine("Отправлено: {0}", message);
+               writer.WriteLine(message);
+               Console.WriteLine($"Отправлено: {message}");
 
-               // Читаем ответ
-               byte[] buffer = new byte[1024];
-               int bytesRead = client.Read(buffer, 0, buffer.Length);
-               string response = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-               Console.WriteLine("Получен ответ: {0}", response);
-            }
-            catch (Exception ex)
-            {
-               Console.WriteLine("Ошибка: {0}", ex.Message);
+               // Получаем ответ от сервера
+               string response = reader.ReadLine();
+               Console.WriteLine($"Получено от сервера: {response}");
             }
          }
-
-         Console.WriteLine("Клиент завершил работу. Нажмите Enter для выхода");
-         Console.ReadLine();
       }
    }
 }

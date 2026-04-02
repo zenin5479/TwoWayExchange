@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.IO.Pipes;
 using System.Text;
 using System.Windows.Forms;
@@ -7,7 +8,9 @@ namespace SyncServer
 {
    public partial class MainForm : Form
    {
-      private NamedPipeServerStream _server;
+      private NamedPipeServerStream pipeServer;
+      private StreamReader reader;
+      private StreamWriter writer;
 
       public MainForm()
       {
@@ -64,7 +67,7 @@ namespace SyncServer
       private void buttonStop_Click(object sender, EventArgs e)
       {
          // Принудительное закрытие (клиент получит исключение, но это единственный способ)
-         _server.Close();
+         //_server.Close();
          Log("Остановка сервера (принудительно)");
       }
 
