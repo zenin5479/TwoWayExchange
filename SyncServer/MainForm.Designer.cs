@@ -38,12 +38,12 @@
          // 
          // txtLog
          // 
-         txtLog.Location = new System.Drawing.Point(103, 224);
+         txtLog.Location = new System.Drawing.Point(252, 70);
          txtLog.Multiline = true;
          txtLog.Name = "txtLog";
          txtLog.ReadOnly = true;
          txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-         txtLog.Size = new System.Drawing.Size(422, 124);
+         txtLog.Size = new System.Drawing.Size(234, 76);
          txtLog.TabIndex = 3;
          // 
          // ButtonStart
@@ -59,7 +59,7 @@
          // ButtonStop
          // 
          ButtonStop.Enabled = false;
-         ButtonStop.Location = new System.Drawing.Point(349, 12);
+         ButtonStop.Location = new System.Drawing.Point(401, 12);
          ButtonStop.Name = "ButtonStop";
          ButtonStop.Size = new System.Drawing.Size(85, 23);
          ButtonStop.TabIndex = 5;
@@ -69,17 +69,17 @@
          // 
          // txtMessage
          // 
-         txtMessage.Location = new System.Drawing.Point(12, 108);
+         txtMessage.Location = new System.Drawing.Point(12, 70);
          txtMessage.Multiline = true;
          txtMessage.Name = "txtMessage";
-         txtMessage.Size = new System.Drawing.Size(182, 76);
+         txtMessage.Size = new System.Drawing.Size(234, 76);
          txtMessage.TabIndex = 6;
          // 
          // ButtonSend
          // 
-         ButtonSend.Location = new System.Drawing.Point(12, 79);
+         ButtonSend.Location = new System.Drawing.Point(12, 41);
          ButtonSend.Name = "ButtonSend";
-         ButtonSend.Size = new System.Drawing.Size(182, 23);
+         ButtonSend.Size = new System.Drawing.Size(234, 23);
          ButtonSend.TabIndex = 7;
          ButtonSend.Text = "кнопка отправки сообщения";
          ButtonSend.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
          // 
          // ButtonReceive
          // 
-         ButtonReceive.Location = new System.Drawing.Point(237, 107);
+         ButtonReceive.Location = new System.Drawing.Point(252, 41);
          ButtonReceive.Name = "ButtonReceive";
          ButtonReceive.Size = new System.Drawing.Size(234, 23);
          ButtonReceive.TabIndex = 8;
@@ -99,7 +99,7 @@
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         ClientSize = new System.Drawing.Size(573, 360);
+         ClientSize = new System.Drawing.Size(498, 360);
          Controls.Add(ButtonReceive);
          Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
