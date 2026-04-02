@@ -86,7 +86,7 @@ namespace SyncServer
             {
                if (pipeServer.CanRead && !pipeServer.IsConnected)
                {
-                  if (pipeServer.WaitForConnection(10)) // Таймаут 10 мс
+                  if (pipeServer.WaitForConnection(1000)) // Таймаут 10 мс
                   {
                      OnClientConnected();
                   }
@@ -137,11 +137,50 @@ namespace SyncServer
          }
       }
 
+      private void DisconnectClient()
+      {
+         isConnected = false;
+         try { reader?.Dispose(); } catch { }
+         try { writer?.Dispose(); } catch { }
+         try { pipeServer?.Dispose(); } catch { }
+
+         // Переинициализируем сервер для нового подключения
+         InitializePipeServer();
+         AppendLog("Клиент отключился. Ожидание нового подключения...");
+      }
+
 
 
       private void btnReceive_Click(object sender, EventArgs e)
       {
+         string message = txtMessage.Text.Trim();
+         if (!string.IsNullOrEmpty(message))
+         {
+            SendMessageToClient(message);
+            txtMessage.Clear();
+         }
+      }
 
+      // Отправка сообщения клиенту (вызывается из UI)
+      private void SendMessageToClient(string message)
+      {
+         if (isConnected && pipeServer.IsConnected)
+         {
+            try
+            {
+               writer.WriteLine(message);
+               AppendLog($"Отправлено клиенту: {message}");
+            }
+            catch (Exception ex)
+            {
+               AppendLog($"Ошибка отправки: {ex.Message}");
+               DisconnectClient();
+            }
+         }
+         else
+         {
+            AppendLog("Нет подключения к клиенту");
+         }
       }
 
       // Обработчик закрытия формы
