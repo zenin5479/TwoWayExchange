@@ -39,7 +39,7 @@
          // 
          // txtLog
          // 
-         txtLog.Location = new System.Drawing.Point(12, 159);
+         txtLog.Location = new System.Drawing.Point(78, 185);
          txtLog.Multiline = true;
          txtLog.Name = "txtLog";
          txtLog.ReadOnly = true;
@@ -50,7 +50,7 @@
          // Label
          // 
          Label.AutoSize = true;
-         Label.Location = new System.Drawing.Point(12, 45);
+         Label.Location = new System.Drawing.Point(120, 47);
          Label.Name = "Label";
          Label.Size = new System.Drawing.Size(247, 15);
          Label.TabIndex = 2;
@@ -79,7 +79,7 @@
          // 
          // txtMessage
          // 
-         txtMessage.Location = new System.Drawing.Point(12, 63);
+         txtMessage.Location = new System.Drawing.Point(32, 65);
          txtMessage.Multiline = true;
          txtMessage.Name = "txtMessage";
          txtMessage.Size = new System.Drawing.Size(100, 23);
@@ -87,7 +87,7 @@
          // 
          // ButtonSend
          // 
-         ButtonSend.Location = new System.Drawing.Point(12, 107);
+         ButtonSend.Location = new System.Drawing.Point(26, 107);
          ButtonSend.Name = "ButtonSend";
          ButtonSend.Size = new System.Drawing.Size(182, 23);
          ButtonSend.TabIndex = 7;
@@ -97,7 +97,7 @@
          // 
          // ButtonReceive
          // 
-         ButtonReceive.Location = new System.Drawing.Point(200, 107);
+         ButtonReceive.Location = new System.Drawing.Point(237, 107);
          ButtonReceive.Name = "ButtonReceive";
          ButtonReceive.Size = new System.Drawing.Size(234, 23);
          ButtonReceive.TabIndex = 8;
@@ -109,7 +109,7 @@
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         ClientSize = new System.Drawing.Size(446, 295);
+         ClientSize = new System.Drawing.Size(573, 360);
          Controls.Add(ButtonReceive);
          Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
