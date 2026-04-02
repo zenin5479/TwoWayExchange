@@ -33,6 +33,8 @@
          buttonStart = new System.Windows.Forms.Button();
          buttonStop = new System.Windows.Forms.Button();
          txtMessage = new System.Windows.Forms.TextBox();
+         btnSend = new System.Windows.Forms.Button();
+         btnReceive = new System.Windows.Forms.Button();
          SuspendLayout();
          // 
          // textBoxLog
@@ -81,11 +83,31 @@
          txtMessage.Size = new System.Drawing.Size(100, 23);
          txtMessage.TabIndex = 6;
          // 
+         // btnSend
+         // 
+         btnSend.Location = new System.Drawing.Point(201, 12);
+         btnSend.Name = "btnSend";
+         btnSend.Size = new System.Drawing.Size(75, 23);
+         btnSend.TabIndex = 7;
+         btnSend.Text = "button1";
+         btnSend.UseVisualStyleBackColor = true;
+         // 
+         // btnReceive
+         // 
+         btnReceive.Location = new System.Drawing.Point(200, 92);
+         btnReceive.Name = "btnReceive";
+         btnReceive.Size = new System.Drawing.Size(75, 23);
+         btnReceive.TabIndex = 8;
+         btnReceive.Text = "button1";
+         btnReceive.UseVisualStyleBackColor = true;
+         // 
          // MainForm
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          ClientSize = new System.Drawing.Size(446, 295);
+         Controls.Add(btnReceive);
+         Controls.Add(btnSend);
          Controls.Add(txtMessage);
          Controls.Add(buttonStop);
          Controls.Add(buttonStart);
@@ -105,5 +127,7 @@
       private System.Windows.Forms.Button buttonStart;
       private System.Windows.Forms.Button buttonStop;
       private System.Windows.Forms.TextBox txtMessage;
+      private System.Windows.Forms.Button btnSend;
+      private System.Windows.Forms.Button btnReceive;
    }
 }
