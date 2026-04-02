@@ -8,12 +8,7 @@ namespace SyncServer
 {
    public partial class MainForm : Form
    {
-      private NamedPipeServerStream pipeServer;
-      private StreamReader reader;
-      private StreamWriter writer;
-      private Timer pipeTimer;
-      private bool isConnected = false;
-
+      
       public MainForm()
       {
          InitializeComponent();
@@ -21,174 +16,27 @@ namespace SyncServer
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
-         pipeServer = new NamedPipeServerStream("my_named_pipe", PipeDirection.InOut);
-
-         SetupTimer();
+         
       }
 
-      private void SetupTimer()
-      {
-         pipeTimer = new Timer();
-         pipeTimer.Interval = 100; // Проверка каждые 100 мс
-         pipeTimer.Tick += PipeTimer_Tick;
-         pipeTimer.Start();
-         AppendLog("Сервер запущен. Ожидание подключения...");
-      }
-
-      // Безопасное обновление UI
-      private void AppendLog(string message)
-      {
-         if (txtLog.InvokeRequired)
-         {
-            txtLog.Invoke(new Action<string>(AppendLog), message);
-         }
-         else
-         {
-            txtLog.AppendText($"{message}\r\n");
-            txtLog.ScrollToCaret(); // Автопрокрутка вниз
-         }
-      }
-
-
+      
 
 
       private void buttonStop_Click(object sender, EventArgs e)
       {
-         // Принудительное закрытие (клиент получит исключение, но это единственный способ)
-         //_server.Close();
-         //Log("Остановка сервера (принудительно)");
+         
       }
 
-
-
-
-      private void Log(string message)
-      {
-         txtLog.AppendText(string.Format("{0:HH:mm:ss:fff} - {1}{2}", DateTime.Now, message, Environment.NewLine));
-      }
 
       private void btnSend_Click(object sender, EventArgs e)
       {
-         string message = txtMessage.Text.Trim();
-         if (!string.IsNullOrEmpty(message))
-         {
-            SendMessageToClient(message);
-            txtMessage.Clear();
-         }
-      }
-
-      private void PipeTimer_Tick(object sender, EventArgs e)
-      {
-         if (!isConnected)
-         {
-            // Неблокирующая проверка подключения с коротким таймаутом
-            try
-            {
-               if (pipeServer.CanRead && !pipeServer.IsConnected)
-               {
-                  if (pipeServer.WaitForConnection(10)) // Таймаут 10 мс
-                  {
-                     OnClientConnected();
-                  }
-               }
-            }
-            catch (Exception ex)
-            {
-               AppendLog($"Ошибка подключения: {ex.Message}");
-            }
-         }
-         else
-         {
-            // Проверка входящих сообщений
-            CheckForIncomingMessages();
-         }
-      }
-
-      private void OnClientConnected()
-      {
-         isConnected = true;
-         reader = new StreamReader(pipeServer, Encoding.UTF8);
-         writer = new StreamWriter(pipeServer, Encoding.UTF8) { AutoFlush = true };
-         AppendLog("Клиент подключился!");
-      }
-
-      private void CheckForIncomingMessages()
-      {
-         try
-         {
-            if (reader.Peek() > 0) // Есть данные для чтения?
-            {
-               string message = reader.ReadLine();
-               if (!string.IsNullOrEmpty(message))
-               {
-                  AppendLog($"Получено от клиента: {message}");
-
-                  // Автоматический ответ клиенту
-                  string response = $"Сервер получил: {message}";
-                  writer.WriteLine(response);
-                  AppendLog($"Отправлено клиенту: {response}");
-               }
-            }
-         }
-         catch (Exception ex)
-         {
-            AppendLog($"Ошибка чтения: {ex.Message}");
-            DisconnectClient();
-         }
-      }
-
-      private void DisconnectClient()
-      {
-         isConnected = false;
-         try { reader?.Dispose(); } catch { }
-         try { writer?.Dispose(); } catch { }
-         try { pipeServer?.Dispose(); } catch { }
-
-         // Переинициализируем сервер для нового подключения
-         InitializePipeServer();
-         AppendLog("Клиент отключился. Ожидание нового подключения...");
+        
       }
 
 
 
       private void btnReceive_Click(object sender, EventArgs e)
       {
-         string message = txtMessage.Text.Trim();
-         if (!string.IsNullOrEmpty(message))
-         {
-            SendMessageToClient(message);
-            txtMessage.Clear();
-         }
-      }
-
-      // Отправка сообщения клиенту (вызывается из UI)
-      private void SendMessageToClient(string message)
-      {
-         if (isConnected && pipeServer.IsConnected)
-         {
-            try
-            {
-               writer.WriteLine(message);
-               AppendLog($"Отправлено клиенту: {message}");
-            }
-            catch (Exception ex)
-            {
-               AppendLog($"Ошибка отправки: {ex.Message}");
-               DisconnectClient();
-            }
-         }
-         else
-         {
-            AppendLog("Нет подключения к клиенту");
-         }
-      }
-
-      // Обработчик закрытия формы
-      protected override void OnFormClosing(FormClosingEventArgs e)
-      {
-         pipeTimer?.Stop();
-         DisconnectClient();
-         base.OnFormClosing(e);
       }
 
    }
