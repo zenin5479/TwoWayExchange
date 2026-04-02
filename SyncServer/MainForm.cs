@@ -21,7 +21,7 @@ namespace SyncServer
       private void ButtonSend_Click(object sender, EventArgs e)
       {
          // Создаём сервер канала (именованный канал)
-         using (var server = new NamedPipeServerStream("twoWayPipe",
+         using (NamedPipeServerStream server = new NamedPipeServerStream("twoWayPipe",
                    PipeDirection.InOut,
                    1,// максимум 1 подключение
                    PipeTransmissionMode.Message,
