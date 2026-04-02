@@ -19,49 +19,16 @@ namespace SyncServer
 
       private void buttonStart_Click(object sender, EventArgs e)
       {
-         // Блокируем кнопку на время работы сервера
-         buttonStart.Enabled = false;
-         textBoxLog.Clear();
+         // Создаём сервер именованного канала
+         pipeServer = new NamedPipeServerStream("my_named_pipe", PipeDirection.InOut);
 
-         Log("Сервер запущен, ожидание подключения...");
+         // Ожидание подключения клиента (блокирующий вызов)
+         pipeServer.WaitForConnection();
 
-         // Создаём серверный канал (одно подключение, режим сообщений)
-         using (NamedPipeServerStream server = new NamedPipeServerStream("mypipe", PipeDirection.InOut, 1, PipeTransmissionMode.Message))
-         {
-            try
-            {
-               // Синхронное ожидание подключения – UI блокируется до подключения клиента
-               server.WaitForConnection();
-               Log("Клиент подключён");
+         reader = new StreamReader(pipeServer, Encoding.UTF8);
+         writer = new StreamWriter(pipeServer, Encoding.UTF8) { AutoFlush = true };
 
-               // Чтение сообщения от клиента
-               byte[] buffer = new byte[1024];
-               int bytesRead = server.Read(buffer, 0, buffer.Length);
-               string clientMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-               Log(string.Format("Получено от клиента: {0}", clientMessage));
-
-               // Отправка ответа клиенту
-               string reply = string.Format("Сервер получил: \"{0}\"", clientMessage);
-               byte[] replyBytes = Encoding.UTF8.GetBytes(reply);
-               server.Write(replyBytes, 0, replyBytes.Length);
-               Log(string.Format("Отправлено клиенту: {0}", reply));
-
-               // (Опционально) можно прочитать подтверждение от клиента, если нужно
-               // Здесь для простоты обмен завершён
-            }
-            catch (Exception ex)
-            {
-               Log(string.Format("Ошибка: {0}", ex.Message));
-            }
-            finally
-            {
-               server.Disconnect();
-               Log("Канал закрыт");
-            }
-         }
-
-         Log("Сервер завершил работу");
-         buttonStart.Enabled = true;
+         MessageBox.Show("Клиент подключился!");
       }
 
       private void buttonStop_Click(object sender, EventArgs e)
