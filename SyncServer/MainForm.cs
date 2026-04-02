@@ -40,7 +40,7 @@ namespace SyncServer
 
       private void Log(string message)
       {
-         textBoxLog.AppendText(string.Format("{0:HH:mm:ss:fff} - {1}{2}", DateTime.Now, message, Environment.NewLine));
+         txtLog.AppendText(string.Format("{0:HH:mm:ss:fff} - {1}{2}", DateTime.Now, message, Environment.NewLine));
       }
    }
 }

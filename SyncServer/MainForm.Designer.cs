@@ -28,7 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
-         textBoxLog = new System.Windows.Forms.TextBox();
+         txtLog = new System.Windows.Forms.TextBox();
          Label = new System.Windows.Forms.Label();
          buttonStart = new System.Windows.Forms.Button();
          buttonStop = new System.Windows.Forms.Button();
@@ -37,14 +37,14 @@
          btnReceive = new System.Windows.Forms.Button();
          SuspendLayout();
          // 
-         // textBoxLog
+         // txtLog
          // 
-         textBoxLog.Location = new System.Drawing.Point(12, 159);
-         textBoxLog.Multiline = true;
-         textBoxLog.Name = "textBoxLog";
-         textBoxLog.ReadOnly = true;
-         textBoxLog.Size = new System.Drawing.Size(422, 124);
-         textBoxLog.TabIndex = 3;
+         txtLog.Location = new System.Drawing.Point(12, 159);
+         txtLog.Multiline = true;
+         txtLog.Name = "txtLog";
+         txtLog.ReadOnly = true;
+         txtLog.Size = new System.Drawing.Size(422, 124);
+         txtLog.TabIndex = 3;
          // 
          // Label
          // 
@@ -111,7 +111,7 @@
          Controls.Add(txtMessage);
          Controls.Add(buttonStop);
          Controls.Add(buttonStart);
-         Controls.Add(textBoxLog);
+         Controls.Add(txtLog);
          Controls.Add(Label);
          Name = "MainForm";
          StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -122,7 +122,7 @@
 
       #endregion
 
-      private System.Windows.Forms.TextBox textBoxLog;
+      private System.Windows.Forms.TextBox txtLog;
       private System.Windows.Forms.Label Label;
       private System.Windows.Forms.Button buttonStart;
       private System.Windows.Forms.Button buttonStop;
