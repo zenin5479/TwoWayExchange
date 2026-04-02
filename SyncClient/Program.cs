@@ -17,7 +17,8 @@ namespace SyncClient
 
             // Чтение сообщения от WinForms
             StreamReader reader = new StreamReader(client);
-            StreamWriter writer = new StreamWriter(client) { AutoFlush = true };
+            StreamWriter writer = new StreamWriter(client);
+            writer.AutoFlush = true;
 
             string received = reader.ReadLine();
             Console.WriteLine($"Клиент получил: {received}");
