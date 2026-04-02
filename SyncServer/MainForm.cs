@@ -47,7 +47,6 @@ namespace SyncServer
             }
             // Канал закрывается автоматически (using)
          }
-
       }
 
       private void ButtonReceive_Click(object sender, EventArgs e)
