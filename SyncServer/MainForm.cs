@@ -22,10 +22,7 @@ namespace SyncServer
       {
          // Создаём сервер канала (именованный канал)
          using (NamedPipeServerStream server = new NamedPipeServerStream("twoWayPipe",
-                   PipeDirection.InOut,
-                   1,// максимум 1 подключение
-                   PipeTransmissionMode.Message,
-                   PipeOptions.None)) // синхронный режим
+                   PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.None)) // синхронный режим
          {
             // Ожидаем подключения консольного приложения
             // ВНИМАНИЕ: блокирует UI поток
