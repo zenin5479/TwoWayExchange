@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SyncServer
@@ -35,12 +34,32 @@ namespace SyncServer
          AppendLog("Сервер запущен. Ожидание подключения...");
       }
 
+      // Безопасное обновление UI
+      private void AppendLog(string message)
+      {
+         if (txtLog.InvokeRequired)
+         {
+            txtLog.Invoke(new Action<string>(AppendLog), message);
+         }
+         else
+         {
+            txtLog.AppendText($"{message}\r\n");
+            txtLog.ScrollToCaret(); // Автопрокрутка вниз
+         }
+      }
+
+
+
+
       private void buttonStop_Click(object sender, EventArgs e)
       {
          // Принудительное закрытие (клиент получит исключение, но это единственный способ)
          //_server.Close();
          //Log("Остановка сервера (принудительно)");
       }
+
+
+
 
       private void Log(string message)
       {
@@ -49,37 +68,28 @@ namespace SyncServer
 
       private void btnSend_Click(object sender, EventArgs e)
       {
-         string message = txtMessage.Text;
-         SendMessageToClient(message);
-         txtLog.AppendText($"Отправлено: {message}\r\n");
+         string message = txtMessage.Text.Trim();
+         if (!string.IsNullOrEmpty(message))
+         {
+            SendMessageToClient(message);
+            txtMessage.Clear();
+         }
       }
+
+
 
       private void btnReceive_Click(object sender, EventArgs e)
       {
-         string received = ReceiveMessageFromClient();
-         if (!string.IsNullOrEmpty(received))
-         {
-            txtLog.AppendText($"Получено: {received}\r\n");
-         }
+
       }
 
-      // Отправка сообщения клиенту
-      private void SendMessageToClient(string message)
+      // Обработчик закрытия формы
+      protected override void OnFormClosing(FormClosingEventArgs e)
       {
-         if (_pipeServer.IsConnected)
-         {
-            writer.WriteLine(message);
-         }
+         pipeTimer?.Stop();
+         DisconnectClient();
+         base.OnFormClosing(e);
       }
 
-      // Приём сообщения от клиента
-      private string ReceiveMessageFromClient()
-      {
-         if (_pipeServer.IsConnected)
-         {
-            return reader.ReadLine();
-         }
-         return null;
-      }
    }
 }
