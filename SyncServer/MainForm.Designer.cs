@@ -34,7 +34,7 @@
          ButtonStop = new System.Windows.Forms.Button();
          txtMessage = new System.Windows.Forms.TextBox();
          ButtonSend = new System.Windows.Forms.Button();
-         btnReceive = new System.Windows.Forms.Button();
+         ButtonReceive = new System.Windows.Forms.Button();
          SuspendLayout();
          // 
          // txtLog
@@ -95,22 +95,22 @@
          ButtonSend.UseVisualStyleBackColor = true;
          ButtonSend.Click += ButtonSend_Click;
          // 
-         // btnReceive
+         // ButtonReceive
          // 
-         btnReceive.Location = new System.Drawing.Point(200, 107);
-         btnReceive.Name = "btnReceive";
-         btnReceive.Size = new System.Drawing.Size(234, 23);
-         btnReceive.TabIndex = 8;
-         btnReceive.Text = "кнопка приёма сообщения";
-         btnReceive.UseVisualStyleBackColor = true;
-         btnReceive.Click += ButtonReceive_Click;
+         ButtonReceive.Location = new System.Drawing.Point(200, 107);
+         ButtonReceive.Name = "ButtonReceive";
+         ButtonReceive.Size = new System.Drawing.Size(234, 23);
+         ButtonReceive.TabIndex = 8;
+         ButtonReceive.Text = "кнопка приёма сообщения";
+         ButtonReceive.UseVisualStyleBackColor = true;
+         ButtonReceive.Click += ButtonReceive_Click;
          // 
          // MainForm
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          ClientSize = new System.Drawing.Size(446, 295);
-         Controls.Add(btnReceive);
+         Controls.Add(ButtonReceive);
          Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
          Controls.Add(ButtonStop);
@@ -132,6 +132,6 @@
       private System.Windows.Forms.Button ButtonStop;
       private System.Windows.Forms.TextBox txtMessage;
       private System.Windows.Forms.Button ButtonSend;
-      private System.Windows.Forms.Button btnReceive;
+      private System.Windows.Forms.Button ButtonReceive;
    }
 }
