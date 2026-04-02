@@ -29,7 +29,6 @@
       private void InitializeComponent()
       {
          txtLog = new System.Windows.Forms.TextBox();
-         Label = new System.Windows.Forms.Label();
          ButtonStart = new System.Windows.Forms.Button();
          ButtonStop = new System.Windows.Forms.Button();
          txtMessage = new System.Windows.Forms.TextBox();
@@ -39,22 +38,13 @@
          // 
          // txtLog
          // 
-         txtLog.Location = new System.Drawing.Point(78, 185);
+         txtLog.Location = new System.Drawing.Point(103, 224);
          txtLog.Multiline = true;
          txtLog.Name = "txtLog";
          txtLog.ReadOnly = true;
          txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
          txtLog.Size = new System.Drawing.Size(422, 124);
          txtLog.TabIndex = 3;
-         // 
-         // Label
-         // 
-         Label.AutoSize = true;
-         Label.Location = new System.Drawing.Point(120, 47);
-         Label.Name = "Label";
-         Label.Size = new System.Drawing.Size(247, 15);
-         Label.TabIndex = 2;
-         Label.Text = "Сервер запущен, ожидание подключения...";
          // 
          // ButtonStart
          // 
@@ -79,15 +69,15 @@
          // 
          // txtMessage
          // 
-         txtMessage.Location = new System.Drawing.Point(32, 65);
+         txtMessage.Location = new System.Drawing.Point(12, 108);
          txtMessage.Multiline = true;
          txtMessage.Name = "txtMessage";
-         txtMessage.Size = new System.Drawing.Size(100, 23);
+         txtMessage.Size = new System.Drawing.Size(182, 76);
          txtMessage.TabIndex = 6;
          // 
          // ButtonSend
          // 
-         ButtonSend.Location = new System.Drawing.Point(26, 107);
+         ButtonSend.Location = new System.Drawing.Point(12, 79);
          ButtonSend.Name = "ButtonSend";
          ButtonSend.Size = new System.Drawing.Size(182, 23);
          ButtonSend.TabIndex = 7;
@@ -116,7 +106,6 @@
          Controls.Add(ButtonStop);
          Controls.Add(ButtonStart);
          Controls.Add(txtLog);
-         Controls.Add(Label);
          Name = "MainForm";
          StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          Text = "Двусторонний обмен между Windows Forms и консолью";
@@ -127,7 +116,6 @@
       #endregion
 
       private System.Windows.Forms.TextBox txtLog;
-      private System.Windows.Forms.Label Label;
       private System.Windows.Forms.Button ButtonStart;
       private System.Windows.Forms.Button ButtonStop;
       private System.Windows.Forms.TextBox txtMessage;
