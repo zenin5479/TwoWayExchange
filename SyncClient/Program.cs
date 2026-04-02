@@ -9,11 +9,12 @@ namespace SyncClient
       static void Main()
       {
          // Имя канала должно совпадать с именем, используемым в WinForms
-         using (NamedPipeClientStream client = new NamedPipeClientStream(".", "twoWayPipe", PipeDirection.InOut))
+         string pipeName = "twoWayPipe";
+         using (NamedPipeClientStream client = new NamedPipeClientStream(".", pipeName, PipeDirection.InOut))
          {
             Console.WriteLine("Клиент: подключение к каналу...");
             // Синхронное подключение
-            client.Connect(); 
+            client.Connect();
 
             // Чтение сообщения от WinForms
             StreamReader reader = new StreamReader(client);
