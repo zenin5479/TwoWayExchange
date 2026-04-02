@@ -86,7 +86,7 @@ namespace SyncServer
             {
                if (pipeServer.CanRead && !pipeServer.IsConnected)
                {
-                  if (pipeServer.WaitForConnection(1000)) // Таймаут 10 мс
+                  if (pipeServer.WaitForConnection(10)) // Таймаут 10 мс
                   {
                      OnClientConnected();
                   }
