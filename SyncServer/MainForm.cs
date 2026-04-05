@@ -45,7 +45,6 @@ namespace SyncServer
                   txtLog.Text = string.Format("Ответ клиента: {0}", response);
                }
             }
-            // Канал закрывается автоматически (using)
          }
       }
 
