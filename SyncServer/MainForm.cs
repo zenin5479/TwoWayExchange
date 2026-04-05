@@ -31,7 +31,7 @@ namespace SyncServer
                   // Отправляем текст из TextBox
                   string request = txtMessage.Text;
                   writer.WriteLine(request);
-                  // Теперь pipeName доступен в вашем коде
+                  // Теперь pipeName доступен
                   txtLog.Text = string.Format("Имя канала: {0}", pipeName);
                   txtLog.Text = "Ожидание ответа...";
 
