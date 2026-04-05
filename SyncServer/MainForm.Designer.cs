@@ -32,6 +32,7 @@
          txtMessage = new System.Windows.Forms.TextBox();
          ButtonSend = new System.Windows.Forms.Button();
          ButtonReceive = new System.Windows.Forms.Button();
+         LabelReceive = new System.Windows.Forms.Label();
          SuspendLayout();
          // 
          // txtLog
@@ -71,11 +72,21 @@
          ButtonReceive.UseVisualStyleBackColor = true;
          ButtonReceive.Click += ButtonReceive_Click;
          // 
+         // LabelReceive
+         // 
+         LabelReceive.AutoSize = true;
+         LabelReceive.Location = new System.Drawing.Point(313, 10);
+         LabelReceive.Name = "LabelReceive";
+         LabelReceive.Size = new System.Drawing.Size(112, 15);
+         LabelReceive.TabIndex = 9;
+         LabelReceive.Text = "Приём сообщения";
+         // 
          // MainForm
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          ClientSize = new System.Drawing.Size(498, 164);
+         Controls.Add(LabelReceive);
          Controls.Add(ButtonReceive);
          Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
@@ -93,5 +104,6 @@
       private System.Windows.Forms.TextBox txtMessage;
       private System.Windows.Forms.Button ButtonSend;
       private System.Windows.Forms.Button ButtonReceive;
+      private System.Windows.Forms.Label LabelReceive;
    }
 }
