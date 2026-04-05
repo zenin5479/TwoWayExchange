@@ -21,7 +21,7 @@ namespace SyncServer
                    1, PipeTransmissionMode.Message, PipeOptions.None))
          {
             // Ожидаем подключения консольного приложения
-            // ВНИМАНИЕ: блокирует UI поток
+            // Блокирует UI поток
             server.WaitForConnection();
             using (StreamReader reader = new StreamReader(server))
             {
