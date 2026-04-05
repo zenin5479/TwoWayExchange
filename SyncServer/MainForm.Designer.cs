@@ -36,7 +36,7 @@
          // 
          // txtLog
          // 
-         txtLog.Location = new System.Drawing.Point(301, 70);
+         txtLog.Location = new System.Drawing.Point(252, 42);
          txtLog.Multiline = true;
          txtLog.Name = "txtLog";
          txtLog.ReadOnly = true;
@@ -45,7 +45,7 @@
          // 
          // txtMessage
          // 
-         txtMessage.Location = new System.Drawing.Point(46, 79);
+         txtMessage.Location = new System.Drawing.Point(12, 42);
          txtMessage.Multiline = true;
          txtMessage.Name = "txtMessage";
          txtMessage.Size = new System.Drawing.Size(234, 76);
@@ -53,7 +53,7 @@
          // 
          // ButtonSend
          // 
-         ButtonSend.Location = new System.Drawing.Point(1, 12);
+         ButtonSend.Location = new System.Drawing.Point(12, 12);
          ButtonSend.Name = "ButtonSend";
          ButtonSend.Size = new System.Drawing.Size(234, 23);
          ButtonSend.TabIndex = 7;
@@ -64,11 +64,11 @@
          // LabelReceive
          // 
          LabelReceive.AutoSize = true;
-         LabelReceive.Location = new System.Drawing.Point(313, 45);
+         LabelReceive.Location = new System.Drawing.Point(252, 16);
          LabelReceive.Name = "LabelReceive";
-         LabelReceive.Size = new System.Drawing.Size(112, 15);
+         LabelReceive.Size = new System.Drawing.Size(113, 15);
          LabelReceive.TabIndex = 9;
-         LabelReceive.Text = "Приём сообщения";
+         LabelReceive.Text = "Приём сообщений";
          // 
          // MainForm
          // 
