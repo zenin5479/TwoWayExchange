@@ -13,11 +13,6 @@ namespace SyncServer
          InitializeComponent();
       }
 
-      private void ButtonStart_Click(object sender, EventArgs e)
-      {
-
-      }
-
       private void ButtonSend_Click(object sender, EventArgs e)
       {
          // Создаём сервер канала (именованный канал)
