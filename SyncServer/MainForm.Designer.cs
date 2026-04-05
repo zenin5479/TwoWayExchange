@@ -31,13 +31,12 @@
          txtLog = new System.Windows.Forms.TextBox();
          txtMessage = new System.Windows.Forms.TextBox();
          ButtonSend = new System.Windows.Forms.Button();
-         ButtonReceive = new System.Windows.Forms.Button();
          LabelReceive = new System.Windows.Forms.Label();
          SuspendLayout();
          // 
          // txtLog
          // 
-         txtLog.Location = new System.Drawing.Point(252, 70);
+         txtLog.Location = new System.Drawing.Point(301, 70);
          txtLog.Multiline = true;
          txtLog.Name = "txtLog";
          txtLog.ReadOnly = true;
@@ -46,7 +45,7 @@
          // 
          // txtMessage
          // 
-         txtMessage.Location = new System.Drawing.Point(12, 70);
+         txtMessage.Location = new System.Drawing.Point(46, 79);
          txtMessage.Multiline = true;
          txtMessage.Name = "txtMessage";
          txtMessage.Size = new System.Drawing.Size(234, 76);
@@ -54,7 +53,7 @@
          // 
          // ButtonSend
          // 
-         ButtonSend.Location = new System.Drawing.Point(12, 41);
+         ButtonSend.Location = new System.Drawing.Point(1, 12);
          ButtonSend.Name = "ButtonSend";
          ButtonSend.Size = new System.Drawing.Size(234, 23);
          ButtonSend.TabIndex = 7;
@@ -62,20 +61,10 @@
          ButtonSend.UseVisualStyleBackColor = true;
          ButtonSend.Click += ButtonSend_Click;
          // 
-         // ButtonReceive
-         // 
-         ButtonReceive.Location = new System.Drawing.Point(252, 41);
-         ButtonReceive.Name = "ButtonReceive";
-         ButtonReceive.Size = new System.Drawing.Size(234, 23);
-         ButtonReceive.TabIndex = 8;
-         ButtonReceive.Text = "кнопка приёма сообщения";
-         ButtonReceive.UseVisualStyleBackColor = true;
-         ButtonReceive.Click += ButtonReceive_Click;
-         // 
          // LabelReceive
          // 
          LabelReceive.AutoSize = true;
-         LabelReceive.Location = new System.Drawing.Point(313, 10);
+         LabelReceive.Location = new System.Drawing.Point(313, 45);
          LabelReceive.Name = "LabelReceive";
          LabelReceive.Size = new System.Drawing.Size(112, 15);
          LabelReceive.TabIndex = 9;
@@ -85,9 +74,8 @@
          // 
          AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
          AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         ClientSize = new System.Drawing.Size(498, 164);
+         ClientSize = new System.Drawing.Size(599, 200);
          Controls.Add(LabelReceive);
-         Controls.Add(ButtonReceive);
          Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
          Controls.Add(txtLog);
@@ -103,7 +91,6 @@
       private System.Windows.Forms.TextBox txtLog;
       private System.Windows.Forms.TextBox txtMessage;
       private System.Windows.Forms.Button ButtonSend;
-      private System.Windows.Forms.Button ButtonReceive;
       private System.Windows.Forms.Label LabelReceive;
    }
 }
