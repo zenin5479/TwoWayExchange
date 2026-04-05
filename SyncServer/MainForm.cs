@@ -42,10 +42,5 @@ namespace SyncServer
             }
          }
       }
-
-      private void ButtonReceive_Click(object sender, EventArgs e)
-      {
-
-      }
    }
 }

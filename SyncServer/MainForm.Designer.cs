@@ -57,7 +57,7 @@
          ButtonSend.Name = "ButtonSend";
          ButtonSend.Size = new System.Drawing.Size(234, 23);
          ButtonSend.TabIndex = 7;
-         ButtonSend.Text = "кнопка отправки сообщения";
+         ButtonSend.Text = "Кнопка отправки сообщения";
          ButtonSend.UseVisualStyleBackColor = true;
          ButtonSend.Click += ButtonSend_Click;
          // 
