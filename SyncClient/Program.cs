@@ -8,7 +8,7 @@ namespace SyncClient
    {
       static void Main()
       {
-         // Имя канала должно совпадать с именем, используемым в WinForms
+         // Имя канала
          string pipeName = "twoWayPipe";
          using (NamedPipeClientStream client = new NamedPipeClientStream(".", pipeName, PipeDirection.InOut))
          {
