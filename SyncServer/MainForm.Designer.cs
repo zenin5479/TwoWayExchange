@@ -29,8 +29,6 @@
       private void InitializeComponent()
       {
          txtLog = new System.Windows.Forms.TextBox();
-         ButtonStart = new System.Windows.Forms.Button();
-         ButtonStop = new System.Windows.Forms.Button();
          txtMessage = new System.Windows.Forms.TextBox();
          ButtonSend = new System.Windows.Forms.Button();
          ButtonReceive = new System.Windows.Forms.Button();
@@ -44,27 +42,6 @@
          txtLog.ReadOnly = true;
          txtLog.Size = new System.Drawing.Size(234, 76);
          txtLog.TabIndex = 3;
-         // 
-         // ButtonStart
-         // 
-         ButtonStart.Location = new System.Drawing.Point(12, 12);
-         ButtonStart.Name = "ButtonStart";
-         ButtonStart.Size = new System.Drawing.Size(120, 23);
-         ButtonStart.TabIndex = 4;
-         ButtonStart.Text = "Запустить сервер";
-         ButtonStart.UseVisualStyleBackColor = true;
-         ButtonStart.Click += ButtonStart_Click;
-         // 
-         // ButtonStop
-         // 
-         ButtonStop.Enabled = false;
-         ButtonStop.Location = new System.Drawing.Point(401, 12);
-         ButtonStop.Name = "ButtonStop";
-         ButtonStop.Size = new System.Drawing.Size(85, 23);
-         ButtonStop.TabIndex = 5;
-         ButtonStop.Text = "Остановить";
-         ButtonStop.UseVisualStyleBackColor = true;
-         ButtonStop.Click += ButtonStop_Click;
          // 
          // txtMessage
          // 
@@ -102,8 +79,6 @@
          Controls.Add(ButtonReceive);
          Controls.Add(ButtonSend);
          Controls.Add(txtMessage);
-         Controls.Add(ButtonStop);
-         Controls.Add(ButtonStart);
          Controls.Add(txtLog);
          Name = "MainForm";
          StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -115,8 +90,6 @@
       #endregion
 
       private System.Windows.Forms.TextBox txtLog;
-      private System.Windows.Forms.Button ButtonStart;
-      private System.Windows.Forms.Button ButtonStop;
       private System.Windows.Forms.TextBox txtMessage;
       private System.Windows.Forms.Button ButtonSend;
       private System.Windows.Forms.Button ButtonReceive;
