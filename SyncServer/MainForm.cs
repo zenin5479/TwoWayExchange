@@ -31,8 +31,8 @@ namespace SyncServer
                   string request = txtMessage.Text;
                   writer.WriteLine(request);
                   // Теперь pipeName доступен
-                  txtLog.Text = string.Format("Имя канала: {0}", pipeName);
-                  txtLog.Text = "Ожидание ответа...";
+                  txtLog.Text = string.Format(@"Имя канала: {0}", pipeName);
+                  txtLog.Text = @"Ожидание ответа...";
 
                   // Синхронно читаем ответ (блокировка)
                   string response = reader.ReadLine();
