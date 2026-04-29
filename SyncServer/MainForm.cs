@@ -36,7 +36,7 @@ namespace SyncServer
 
                   // Синхронно читаем ответ (блокировка)
                   string response = reader.ReadLine();
-                  txtLog.Text = string.Format("Ответ клиента: {0}", response);
+                  txtLog.Text = string.Format(@"Ответ клиента: {0}", response);
                }
             }
          }
